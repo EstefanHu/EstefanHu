@@ -1,0 +1,90 @@
+.header {
+  padding: 50px 0 70px;
+  text-align: right;
+
+  .title {
+    text-transform: capitalize;
+    font-size: 5rem;
+    margin-bottom: 10px;
+
+    span {
+      color: var(--accent);
+      font-weight: 600;
+    }
+  }
+
+  p {
+    color: var(--text);
+    font-size: 1.1rem;
+    transform: color 0.2s;
+    line-height: 25px;
+
+    a {
+      color: var(--text);
+
+      &:hover {
+        color: var(--accent);
+      }
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    padding-bottom: 30px;
+
+    p {
+      font-size: 1rem;
+    }
+  }
+
+  @media only screen and (max-width: 500px) {
+    padding-top: 20px;
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 5px;
+    }
+  }
+}
+
+.section {
+  margin-bottom: 40px;
+
+  h3 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+    color: var(--accent);
+  }
+
+  .bookList {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    .book {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+
+      .info {
+        display: flex;
+        flex-direction: column;
+
+        .bookHeader {
+          width: 100%;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          margin-bottom: 15px;
+
+            h2 {
+                font-weight: bold;
+                font-size: 1.5rem;
+                margin-bottom: 15px;
+            }
+        }
+      }
+    }
+  }
+}

@@ -42,7 +42,7 @@
   align-items: center;
   justify-content: space-between;
   height: 100%;
-  width: 170px;
+  width: 190px;
 
   & .selected {
     color: var(--accent);

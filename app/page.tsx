@@ -75,13 +75,19 @@ export default function Home() {
 
               <ul>
                 <li>
-                  Designed and managed development of AI adoption initiatives,
-                  increasing effectiveness and extensibility of existing
-                  services.
+                  Owned end to end development and delivery of Microsoft Defender for Office suite expansion to global governments. By developing key .NET components, managing day to day tasks, and coordinating cross team initiatives I ensured safe rollouts for our highly confidential clients.
                 </li>
                 <li>
-                  Rolled out streamlined infra for auth leading to off boarding
-                  of deprecated services.
+                  Drove initiative for developing robustness in new features to ensure clean and descriptive processing. Enforcing Zero Trust networking, AAA gateways, and compliant logging.
+                </li>
+                <li>
+                  Contributed to Microsoft m2m communication encoding upgrade initiative, leading my team in the adoption of new standards and skilling up SMEs.
+                </li>
+                <li>
+                  Managed and mentored interns, providing architecture insights across our product suite. Leading to the introduction of MCP and A2A technologies to our team and accepted return offers from mentees.
+                </li>
+                <li>
+                  Developed internal tooling used across the org for upkeeping privileges by automating the fetching, scrubbing, enriching, and processing steps and reducing story time 10x.
                 </li>
               </ul>
             </div>
@@ -105,14 +111,10 @@ export default function Home() {
 
               <ul>
                 <li>
-                  Triaged critical analytics software, designing and developing
-                  optimized solutions in Basic to reduce average query time by 3
-                  seconds, saving over 4,000 hours or approximately $250,000 a
-                  year
+                  Triaged analytics and logging stack reducing average processing time by 3 seconds saving $300,000 annually.
                 </li>
                 <li>
-                  Lead overhaul of email pipelines in Java, improving
-                  accessibility by 15% for 200 billion notifications annually
+                  Lead overhaul of email pipelines in Java, improving accessibility by 15% for 12 million notifications daily. 
                 </li>
                 <li>
                   Upgraded 12 email template pipelines from Java to React and
@@ -292,8 +294,13 @@ export default function Home() {
               <h4>Projects</h4>
             </div>
 
-            <div id="readingMi">
+            <div id="reading">
               <h4>Reading</h4>
+              <ul>
+                <li>
+                  <a href="/lbrry">My Library</a>
+                </li>
+              </ul>
             </div>
           </section>
         </div>

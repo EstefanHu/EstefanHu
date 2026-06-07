@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import styles from "./layout.module.css";
 
+import Nav from "./nav";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -15,7 +17,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Estefan Hu - Software Developer",
-  description: "Portfolio website for Justin Estefan Hu, a software developer based in Seattle, Washington. Showcasing projects, experience, and contact information.",
+  description: "My Resume Website",
 };
 
 export default function RootLayout({
@@ -32,19 +34,7 @@ export default function RootLayout({
           <div className={styles.headerWrapper}>
             <a className={styles.logo} href="/">E</a>
 
-            <nav className={styles.nav}>
-              <a href="/" className={styles.selected}>rsm</a>
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://www.linkedin.com/in/estefanhu/"
-                >lnkdn</a>
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://www.github.com/estefanhu/"
-                >gthb</a>
-            </nav>
+            <Nav />
           </div>
         </div>
 
@@ -91,7 +81,7 @@ export default function RootLayout({
                   G
                 </a>
               </span>
-              <p>&copy; 2024 Justin Estefan Hu - all rights reserved</p>
+              <p>&copy; 2026 Justin Estefan Hu - all rights reserved</p>
             </div>
           </div>
         </div>

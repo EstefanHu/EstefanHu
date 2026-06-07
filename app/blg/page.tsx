@@ -1,6 +1,4 @@
-type Props = {}
-
-const page = (props: Props) => {
+function page() {
   return (
     <div>page</div>
   )
