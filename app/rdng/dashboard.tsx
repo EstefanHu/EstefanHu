@@ -4,8 +4,8 @@ import { buildAttributes } from './attributes'
 import { BarList, Panel } from './panel'
 import styles from './dashboard.module.css'
 
-/** The genre list runs to 40+ rows; the panel shows the most common only. */
-const GENRE_LIMIT = 15
+/** The genre list runs to 40+ entries; the panel shows the most common only. */
+const GENRE_LIMIT = 10
 
 function Tiles({ tiles }: { tiles: LibraryStats['tiles'] }) {
   return (
@@ -34,13 +34,21 @@ export default function Dashboard() {
       <Tiles tiles={stats.tiles} />
 
       <div className={styles.grid}>
+        {attributes.genres.length > 0 && (
+          <Panel
+            title="Top Genres"
+            subtitle={`${attributes.coverage.withGenres.toLocaleString('en-US')} of ${attributes.coverage.total.toLocaleString('en-US')} books tagged · top ${Math.min(GENRE_LIMIT, attributes.genres.length)}`}
+          >
+            <BarList buckets={attributes.genres.slice(0, GENRE_LIMIT)} />
+          </Panel>
+        )}
+
         <Panel
           title="Publication era"
           subtitle={`When your books were first published · ${stats.era.dated.toLocaleString('en-US')} of ${readBooks.length.toLocaleString('en-US')} dated`}
         >
           <BarList buckets={stats.decades} emptyLabel="No publication years in the export" />
         </Panel>
-
         <Panel
           title="Page length"
           subtitle={`${stats.lengthSummary.average.toLocaleString('en-US')} pages average · ${stats.lengthSummary.median.toLocaleString('en-US')} median · ${stats.lengthSummary.total.toLocaleString('en-US')} total across ${stats.lengthSummary.sampled.toLocaleString('en-US')} editions`}
@@ -57,14 +65,6 @@ export default function Dashboard() {
           </Panel>
         )}
 
-        {attributes.genres.length > 0 && (
-          <Panel
-            title="Top Genres"
-            subtitle={`${attributes.coverage.withGenres.toLocaleString('en-US')} of ${attributes.coverage.total.toLocaleString('en-US')} books tagged · top ${Math.min(GENRE_LIMIT, attributes.genres.length)}`}
-          >
-            <BarList buckets={attributes.genres.slice(0, GENRE_LIMIT)} />
-          </Panel>
-        )}
       </div>
     </section>
   )

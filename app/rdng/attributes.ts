@@ -18,12 +18,12 @@ import { Bucket } from './stats'
  */
 const ATTRIBUTES_PATH = path.join(process.cwd(), 'data', 'rdng-attributes.json')
 
-type BookAttributes = {
+export type BookAttributes = {
   moods?: string[]
   genres?: string[]
 }
 
-function loadAttributes(): Record<string, BookAttributes> {
+export function loadAttributes(): Record<string, BookAttributes> {
   if (!fs.existsSync(ATTRIBUTES_PATH)) return {}
 
   try {
@@ -37,7 +37,20 @@ function loadAttributes(): Record<string, BookAttributes> {
   }
 }
 
-function tally(books: Book[], attributes: Record<string, BookAttributes>, key: 'moods' | 'genres') {
+/**
+ * Open Library tags most fiction with a bare `Fiction` heading, which carries
+ * no information and tops every other genre by a mile. It's kept in
+ * `data/rdng-attributes.json` so the raw data stays intact, but left out of the
+ * charts.
+ */
+const EXCLUDED_GENRES = new Set(['Fiction'])
+
+function tally(
+  books: Book[],
+  attributes: Record<string, BookAttributes>,
+  key: 'moods' | 'genres',
+  excluded: Set<string> = new Set(),
+) {
   const counts = new Map<string, number>()
   let matched = 0
 
@@ -45,10 +58,14 @@ function tally(books: Book[], attributes: Record<string, BookAttributes>, key: '
     const values = attributes[book.title]?.[key]
     if (!values?.length) continue
 
+    const usable = values.map((entry) => entry.trim()).filter((entry) => entry && !excluded.has(entry))
+
+    if (!usable.length) continue
+
     matched += 1
 
     // a book can carry the same tag twice; count each tag once per book
-    for (const value of new Set(values.map((entry) => entry.trim()).filter(Boolean))) {
+    for (const value of new Set(usable)) {
       counts.set(value, (counts.get(value) ?? 0) + 1)
     }
   }
@@ -64,7 +81,7 @@ export function buildAttributes(books: Book[]) {
   const attributes = loadAttributes()
 
   const moods = tally(books, attributes, 'moods')
-  const genres = tally(books, attributes, 'genres')
+  const genres = tally(books, attributes, 'genres', EXCLUDED_GENRES)
 
   return {
     moods: moods.buckets,

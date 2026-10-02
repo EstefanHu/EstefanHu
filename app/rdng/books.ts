@@ -6,6 +6,7 @@ export type Book = {
   authors: string
   rating: number
   pages: number | null
+  isbn: string | null
   /** first publication year, when Goodreads records one */
   publishedYear: number | null
   /** ISO `YYYY-MM-DD`, or null when Goodreads has no date for it */
@@ -132,11 +133,15 @@ function toBook(row: Record<string, string>): Book {
   const author = row['Author']?.trim() ?? ''
   const title = row['Title']?.trim() ?? ''
 
+  const isbnRaw = row['ISBN13'] ?? ''
+  const isbn = isbnRaw.replace(/[^0-9Xx]/g, '')
+
   return {
     title,
     authors: additional ? `${author}, ${additional}` : author,
     rating: toNumber(row['My Rating']) ?? 0,
     pages: toNumber(row['Number of Pages']),
+    isbn: isbn.length === 13 ? isbn : null,
     publishedYear: toPublishedYear(row),
     finishedAt: toIso(row['Date Read'] ?? ''),
     addedAt: toIso(row['Date Added'] ?? ''),

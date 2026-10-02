@@ -69,41 +69,104 @@
   }
 
   .book {
+    /* Fixed height so every card matches regardless of what it contains; the
+       cover is sized off --cover-width and keeps a 2:3 ratio from there. */
+    --card-height: 202px;
+    --cover-width: 64px;
     display: flex;
     flex-direction: row;
-    align-items: center;
+    /* stretch so .bookInfo fills the card and can centre its own contents;
+       the cover opts back out with align-self */
+    align-items: stretch;
     gap: 20px;
-    flex-wrap: wrap;
-    padding: 16px 20px;
+    height: var(--card-height);
+    padding: 8px 18px;
     background-color: var(--background);
     border: 1px solid var(--borderColor);
     border-left: 3px solid var(--accent);
     border-radius: var(--border-radius);
 
-    .bookHeader {
-      flex-grow: 1;
-      /* 0 lets the header shrink below its content width, which is what lets
-         the ellipsis kick in instead of the title overflowing the card */
-      min-width: 0;
+    .cover {
+      /* centred against the text block so a short cover doesn't leave a hole
+         under it */
+      align-self: center;
+      width: var(--cover-width);
+      height: calc(var(--cover-width) * 1.5);
+      aspect-ratio: 2 / 3;
+      flex-shrink: 0;
+      object-fit: cover;
+      object-position: center top;
+      font-size: 0; /* keeps alt text from showing on a failed load */
+      border-radius: 4px;
+      border: 1px solid var(--borderColor);
+      background-color: var(--component);
+    }
+
+    .bookInfo {
       display: flex;
       flex-direction: column;
-      gap: 3px;
+      justify-content: center;
+      flex-grow: 1;
+      min-width: 0;
+      gap: 9px;
+      overflow: hidden;
+    }
 
+    .bookHeader {
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      min-width: 0;
+
+      /* every card reserves two lines for its title, so titles of any length
+         take the same slot and cut off at the same point */
       .bookTitle {
-        font-size: 1.1rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        font-size: 1.05rem;
+        line-height: 1.35;
         font-weight: bold;
         color: var(--text);
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
+      }
+
+      /* the widest cap shows by default; narrower viewports swap down.
+         These overrides live here, beside the base rules, so they match their
+         specificity and order decides. */
+      .titleMedium,
+      .titleNarrow {
+        display: none;
+      }
+
+      @media only screen and (max-width: 900px) {
+        .titleWide {
+          display: none;
+        }
+
+        .titleMedium {
+          display: block;
+        }
+      }
+
+      @media only screen and (max-width: 600px) {
+        .titleMedium {
+          display: none;
+        }
+
+        .titleNarrow {
+          display: block;
+        }
       }
 
       .author {
-        font-size: 0.9rem;
-        color: var(--textSecondary);
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
+        font-size: 0.85rem;
+        color: var(--textSecondary);
       }
     }
 
@@ -123,13 +186,38 @@
       color: var(--accent);
     }
 
-    .bookFooter {
+    /* Tags wrap onto a second row rather than being clipped or hidden. No
+       reserved height: the card is tall enough for two rows, and leaving the
+       space out lets the text block centre properly when there's one row. */
+    .tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 15px;
+      gap: 6px;
+      min-width: 0;
+      align-content: center;
+    }
+
+    .tag {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 3px 8px;
+      border-radius: 99px;
+      background-color: var(--component);
+      color: var(--textSecondary);
+      border: 1px solid var(--borderColor);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .bookFooter {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 12px;
       flex-shrink: 0;
       justify-content: flex-end;
-      font-size: 0.75rem;
+      overflow: hidden;
+      font-size: 0.72rem;
       text-transform: uppercase;
       letter-spacing: 0.04em;
       color: var(--textSecondary);
@@ -146,11 +234,12 @@
     }
   }
 
-  @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: 600px) {
     .book {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 10px;
+      --card-height: 190px;
+      --cover-width: 54px;
+      gap: 14px;
+      padding: 14px 16px;
 
       .bookFooter {
         justify-content: flex-start;
