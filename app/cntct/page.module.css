@@ -1,0 +1,90 @@
+.header {
+  padding: 50px 0 70px;
+  text-align: right;
+
+  .title {
+    text-transform: capitalize;
+    font-size: 5rem;
+    margin-bottom: 10px;
+
+    span {
+      color: var(--accent);
+      font-weight: 600;
+    }
+  }
+
+  p {
+    color: var(--text);
+    font-size: 1.1rem;
+    line-height: 25px;
+
+    a {
+      color: var(--text);
+
+      &:hover {
+        color: var(--accent);
+      }
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    padding-bottom: 30px;
+
+    p {
+      font-size: 1rem;
+    }
+  }
+
+  @media only screen and (max-width: 500px) {
+    padding-top: 20px;
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 5px;
+    }
+  }
+}
+
+.section {
+  margin-bottom: 40px;
+
+  h3 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+    color: var(--accent);
+  }
+}
+
+.email {
+  font-size: 1.5rem;
+  font-weight: bold;
+  transition: color 0.2s;
+
+  &:hover {
+    color: var(--text);
+  }
+}
+
+.linkList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  a {
+    font-size: 1.1rem;
+    transition: color 0.2s;
+
+    &:hover {
+      color: var(--text);
+    }
+  }
+}
+
+.text {
+  color: var(--text);
+  font-size: 1.1rem;
+  line-height: 25px;
+}
