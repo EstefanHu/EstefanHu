@@ -1,6 +1,4 @@
-type Props = {}
-
-const layout = (props: Props) => {
+const layout = () => {
   return (
     <div>layout</div>
   )

@@ -1,0 +1,160 @@
+.header {
+  padding: 50px 0 70px;
+  text-align: right;
+
+  .title {
+    text-transform: capitalize;
+    font-size: 5rem;
+    margin-bottom: 10px;
+
+    span {
+      color: var(--accent);
+      font-weight: 600;
+    }
+  }
+
+  p {
+    color: var(--text);
+    font-size: 1.1rem;
+    transform: color 0.2s;
+    line-height: 25px;
+
+    a {
+      color: var(--text);
+
+      &:hover {
+        color: var(--accent);
+      }
+    }
+  }
+
+  .subtitle {
+    color: var(--textSecondary);
+    font-size: 0.95rem;
+  }
+
+  @media only screen and (max-width: 600px) {
+    padding-bottom: 30px;
+
+    p {
+      font-size: 1rem;
+    }
+  }
+
+  @media only screen and (max-width: 500px) {
+    padding-top: 20px;
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 5px;
+    }
+  }
+}
+
+.section {
+  margin-bottom: 40px;
+
+  .sectionTitle {
+    font-size: 1.25rem;
+    font-weight: bold;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+    color: var(--accent);
+  }
+
+  .bookList {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .book {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 16px 20px;
+    background-color: var(--background);
+    border: 1px solid var(--borderColor);
+    border-left: 3px solid var(--accent);
+    border-radius: var(--border-radius);
+
+    .bookHeader {
+      flex-grow: 1;
+      /* 0 lets the header shrink below its content width, which is what lets
+         the ellipsis kick in instead of the title overflowing the card */
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+
+      .bookTitle {
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: var(--text);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .author {
+        font-size: 0.9rem;
+        color: var(--textSecondary);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+
+    .rating {
+      display: flex;
+      gap: 2px;
+      font-size: 0.85rem;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .star {
+      color: var(--borderColor);
+    }
+
+    .starFilled {
+      color: var(--accent);
+    }
+
+    .bookFooter {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      flex-shrink: 0;
+      justify-content: flex-end;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--textSecondary);
+      white-space: nowrap;
+    }
+
+    .meta {
+      display: flex;
+      gap: 5px;
+    }
+
+    .metaLabel {
+      font-weight: bold;
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    .book {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+
+      .bookFooter {
+        justify-content: flex-start;
+      }
+    }
+  }
+}

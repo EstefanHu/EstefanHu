@@ -120,23 +120,6 @@
         line-height: 25px;
       }
 
-      &.status {
-        h3 {
-          span {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            padding: 4px 8px;
-            border-radius: 20px;
-            color: white;
-            background-color: var(--accent);
-          }
-        }
-
-        p {
-          margin-bottom: 20px;
-        }
-      }
-
       &.experience, &.misc {
         display: flex;
         flex-direction: column;
@@ -225,26 +208,6 @@
           line-height: 25px;
           margin-left: 20px;
           font-size: 1rem;
-        }
-      }
-
-      &.education {
-        display: flex;
-        flex-direction: column;
-
-        .learn {
-          display: flex;
-          flex-direction: column;
-
-          h4 {
-            margin-bottom: 10px;
-            font-weight: bold;
-            font-size: 1.1rem;
-          }
-
-          p {
-            font-weight: 1rem;
-          }
         }
       }
     }

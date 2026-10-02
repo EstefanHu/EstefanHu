@@ -1,6 +1,4 @@
-type Props = {}
-
-const page = (props: Props) => {
+const page = () => {
   return (
     <div>
       <h1>Projects</h1>

@@ -1,18 +1,15 @@
 'use client';
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import styles from "./layout.module.css";
-import { useState, useEffect } from "react";
 
-export default () => {
-  const [selectedPage, setSelectedPage] = useState("/");
-
-    useEffect(() => {
-      setSelectedPage(window.location.pathname);
-    }, []);
+function Nav() {
+  const pathname = usePathname();
 
   return (
     <nav className={styles.nav}>
-      <a href="/" className={selectedPage === "/" ? styles.selected : ""}>rsm</a>
-      <a href="/lbrry" className={selectedPage === "/lbrry" ? styles.selected : ""}>lbrry</a>
+      <Link href="/" className={pathname === "/" ? styles.selected : ""}>rsm</Link>
+      <Link href="/rdng" className={pathname === "/rdng" ? styles.selected : ""}>rdng</Link>
       <a
         target="_blank"
         rel="noopener noreferrer"
@@ -26,3 +23,5 @@ export default () => {
     </nav>
   );
 }
+
+export default Nav;
