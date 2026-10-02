@@ -121,6 +121,9 @@
     flex-direction: column;
     align-items: flex-end;
     margin-left: 15px;
+    /* these spans are flex items stretched to the row height, so padding would
+       be absorbed into the existing height; margin is what creates the space */
+    margin-bottom: 20px;
     flex-grow: 1;
 
     h4 {
@@ -169,6 +172,8 @@
           span {
             align-items: flex-start;
             margin: 0 15px 0 0;
+            /* .footerNav already carries margin-bottom: 35px in this
+               stacked layout, so this would double up */
 
             a {
               padding: 7px 1px;
@@ -189,17 +194,14 @@
 }
 
 @media only screen and (max-width: 380px) {
-  .main {
-    padding-top: 10px;
-  }
-
   .footerWrapper {
     .footerTop {
       .footerNav {
         flex-direction: column;
 
         span {
-          margin-top: 20px;
+          padding-top: 10px;
+          padding-bottom: 10px;
         }
       }
     }

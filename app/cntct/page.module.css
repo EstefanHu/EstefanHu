@@ -13,26 +13,8 @@
     }
   }
 
-  p {
-    color: var(--text);
-    font-size: 1.1rem;
-    line-height: 25px;
-
-    a {
-      color: var(--text);
-
-      &:hover {
-        color: var(--accent);
-      }
-    }
-  }
-
   @media only screen and (max-width: 600px) {
     padding-bottom: 30px;
-
-    p {
-      font-size: 1rem;
-    }
   }
 
   @media only screen and (max-width: 500px) {
@@ -45,21 +27,30 @@
   }
 }
 
-.section {
+.linkList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* one rhythm for spacing between items; the gap down to the cards is
+     handled separately by margin-bottom so the two stay independent */
+  gap: 20px;
   margin-bottom: 40px;
 
-  h3 {
-    font-size: 1.25rem;
-    font-weight: bold;
-    text-transform: capitalize;
-    margin-bottom: 20px;
-    color: var(--accent);
+  @media only screen and (max-width: 500px) {
+    gap: 16px;
+    margin-bottom: 28px;
   }
 }
 
-.email {
-  font-size: 1.5rem;
-  font-weight: bold;
+.link {
+  display: block;
+  /* block-level anchors stretch full width; keep the underline hugging the text */
+  width: fit-content;
+  font-size: 1.35rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 4px;
   transition: color 0.2s;
 
   &:hover {
@@ -67,24 +58,51 @@
   }
 }
 
-.linkList {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
 
-  a {
-    font-size: 1.1rem;
-    transition: color 0.2s;
-
-    &:hover {
-      color: var(--text);
-    }
+  /* single column once two cards can no longer sit side by side
+     without the email value wrapping awkwardly */
+  @media only screen and (max-width: 520px) {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
-.text {
+.card {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.cardHead {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.cardNumber {
+  font-family: var(--font-geist-mono), monospace;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+}
+
+.cardLabel {
+  font-size: 1rem;
+  font-weight: 700;
+  /* not an <a> anymore, so it needs an explicit color; --text is #333 in light
+     (reads as black) and near-white in dark mode */
   color: var(--text);
-  font-size: 1.1rem;
-  line-height: 25px;
+}
+
+.cardValue {
+  color: var(--textSecondary);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
 }

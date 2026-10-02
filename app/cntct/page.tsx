@@ -1,21 +1,30 @@
 import styles from './page.module.css'
 import Link from 'next/link'
 
-const EMAIL = 'estefan.hu.dev@gmail.com'
+const EMAIL = 'estefanhu074@gmail.com'
 
-const LINKS = [
+const CARDS = [
+  {
+    label: 'Email',
+    href: `mailto:${EMAIL}`,
+    internal: true,
+    value: (
+      <>
+        {EMAIL}
+        <br />
+        best way to get in contact
+      </>
+    ),
+  },
   {
     label: 'LinkedIn',
     href: 'https://www.linkedin.com/in/estefanhu/',
+    value: 'For the public version of my work experience.',
   },
   {
     label: 'GitHub',
     href: 'https://github.com/estefanhu/',
-  },
-  {
-    label: 'Resume',
-    href: '/',
-    internal: true,
+    value: 'If you would like to see some of my work.',
   },
 ]
 
@@ -23,52 +32,49 @@ function page() {
   return (
     <>
       <div className={styles.header}>
-        <h1 className={styles.title}>Get in <span>Touch</span></h1>
-        <p>
-          The fastest way to reach me is email. I read everything and reply to
-          most things within a few days.
-        </p>
+        <h1 className={styles.title}>
+          Say <span>Hello</span>
+        </h1>
       </div>
 
-      <section className={styles.section}>
-        <h3>Email</h3>
+      <ul className={styles.linkList}>
+        {CARDS.map((card) => (
+          <li key={card.label}>
+            {card.internal ? (
+              <Link className={styles.link} href={card.href}>
+                {card.label}
+              </Link>
+            ) : (
+              <a
+                className={styles.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                href={card.href}
+              >
+                {card.label}
+              </a>
+            )}
+          </li>
+        ))}
+      </ul>
 
-        <a className={styles.email} href={`mailto:${EMAIL}`}>
-          {EMAIL}
-        </a>
-      </section>
+      <div className={styles.cards}>
+        {CARDS.map((card, i) => (
+          <div className={styles.card} key={card.label}>
+            <div className={styles.cardHead}>
+              <span className={styles.cardNumber}>
+                {String(i + 1).padStart(2, '0')}
+              </span>
 
-      <section className={styles.section}>
-        <h3>Elsewhere</h3>
+              <span className={styles.cardLabel}>{card.label}</span>
+            </div>
 
-        <ul className={styles.linkList}>
-          {LINKS.map((link) => (
-            <li key={link.label}>
-              {link.internal ? (
-                <Link href={link.href}>{link.label}</Link>
-              ) : (
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href={link.href}
-                >
-                  {link.label}
-                </a>
-              )}
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <section className={styles.section}>
-        <h3>Based In</h3>
-
-        <p className={styles.text}>Seattle, Washington</p>
-        <p className={styles.text}>
-          Remote friendly &mdash; collaborating with teams across Pacific Time,
-          Eastern Time, and Central European Time.
-        </p>
-      </section>
+            {card.value && (
+              <span className={styles.cardValue}>{card.value}</span>
+            )}
+          </div>
+        ))}
+      </div>
     </>
   )
 }
