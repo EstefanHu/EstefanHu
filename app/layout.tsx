@@ -55,6 +55,13 @@ export default function RootLayout({
 
               <div className={styles.footerNav}>
                 <span>
+                  <h4>links</h4>
+                  <a href="/blg">blg</a>
+                  <a href="/lbrry">lbrry</a>
+                  <a href="/prjcts">prjcts</a>
+                </span>
+
+                <span>
                   <h4>me</h4>
                   <a href="/">resume</a>
                   <a href="/cntct">contact</a>
