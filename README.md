@@ -26,7 +26,7 @@ The reading dashboard lives at `/rdng`, the blog at `/blg`.
 - `app/blg/page.tsx` / `app/blg/page.module.css` — the list.
 - `app/blg/[slug]/page.tsx` / `app/blg/[slug]/post.module.css` — one post, with previous/next links derived from its position in the sorted list.
 
-The placeholder content is lorem ipsum: drop real posts into `app/blg/posts.ts`, and once the posts are written in Markdown somewhere else, replace that file with a loader that reads the CMS of your choice — the two pages only use `sortedPosts`, `getPost`, `preview`, `formatDate` and `readingTime`.
+Post bodies are lorem ipsum for now: drop real ones into `app/blg/posts.ts`, and once posts are written in Markdown somewhere else, replace that file with a loader that reads the CMS of your choice — the two pages only use `sortedPosts`, `getPost`, `preview`, `formatDate` and `readingTime`.
 
 ## The reading dashboard
 
