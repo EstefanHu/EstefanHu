@@ -9,17 +9,9 @@ function Nav() {
   return (
     <nav className={styles.nav}>
       <Link href="/" className={pathname === "/" ? styles.selected : ""}>rsm</Link>
+      <Link href="/prjcts" className={pathname === "/prjcts" ? styles.selected : ""}>prjcts</Link>
+      <Link href="/blg" className={pathname === "/blg" ? styles.selected : ""}>blg</Link>
       <Link href="/rdng" className={pathname === "/rdng" ? styles.selected : ""}>rdng</Link>
-      <a
-        target="_blank"
-        rel="noopener noreferrer"
-        href="https://www.linkedin.com/in/estefanhu/"
-      >lnkdn</a>
-      <a
-        target="_blank"
-        rel="noopener noreferrer"
-        href="https://www.github.com/estefanhu/"
-      >gthb</a>
     </nav>
   );
 }

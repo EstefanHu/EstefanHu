@@ -38,8 +38,8 @@ export default function Home() {
             <div className={styles.subLinks}>
               <a href="#microsoft">microsoft</a>
               <a href="#amazon">amazon</a>
-              <a href="#adtech">adtech</a>
-              <a href="#realestate">real estate</a>
+              <a href="#goodwaygroup">goodway group</a>
+              <a href="#realtysimple">realty simple</a>
               <a href="#social">social</a>
             </div>
             <a href="#technology">technology</a>
@@ -48,7 +48,7 @@ export default function Home() {
             <a href="#misc">misc</a>
             <div className={styles.subLinks}>
               <a href="#projects">projects</a>
-              <a href="#reading">reading</a>
+              <a href="#blog">blog</a>
             </div>
           </div>
         </div>
@@ -114,7 +114,7 @@ export default function Home() {
                   Triaged analytics and logging stack reducing average processing time by 3 seconds saving $300,000 annually.
                 </li>
                 <li>
-                  Lead overhaul of email pipelines in Java, improving accessibility by 15% for 12 million notifications daily. 
+                  Lead overhaul of email pipelines in Java, improving accessibility by 15% for 12 million notifications daily.
                 </li>
                 <li>
                   Upgraded 12 email template pipelines from Java to React and
@@ -127,8 +127,8 @@ export default function Home() {
               </ul>
             </div>
 
-            <div id="adtech">
-              <h4>Ad Tech</h4>
+            <div id="goodwaygroup">
+              <h4>Goodway Group</h4>
 
               <div className={styles.info}>
                 <span>
@@ -175,8 +175,8 @@ export default function Home() {
               </ul>
             </div>
 
-            <div id="realestate">
-              <h4>Real Estate</h4>
+            <div id="realtysimple">
+              <h4>Realty Simple</h4>
 
               <div className={styles.info}>
                 <span>
@@ -252,22 +252,22 @@ export default function Home() {
               &#183; SQL &#183; Ruby
             </p>
             <p>
-              <span>tools:</span>
+              <span>tools: </span>
               .NET &#183; React &#183; Node &#183; GraphQL &#183; FastAPI &#183;
               Spring Boot
             </p>
             <p>
-              <span>databases:</span>
+              <span>databases: </span>
               Redshift &#183; PostgresSQL &#183; MySQL &#183; SQLite &#183;
               Redis &#183; MongoDB
             </p>
             <p>
-              <span>cloud services:</span>
+              <span>cloud services: </span>
               Azure &#183; AWS &#183; Vercel &#183; Heroku &#183; Firebase
               &#183; Railway
             </p>
             <p>
-              <span>devOps:</span>
+              <span>devOps: </span>
               Docker &#183; Kubernetes &#183; Linux &#183; Git &#183; Github
               &#183; CirclCI &#183; Shell
             </p>
@@ -293,14 +293,8 @@ export default function Home() {
             <div id="projects">
               <h4>Projects</h4>
             </div>
-
-            <div id="reading">
-              <h4>Reading</h4>
-              <ul>
-                <li>
-                  <a href="/rdng">My Library</a>
-                </li>
-              </ul>
+            <div id="blog">
+              <h4>Blog</h4>
             </div>
           </section>
         </div>
