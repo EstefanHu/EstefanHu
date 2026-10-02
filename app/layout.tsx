@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import styles from "./layout.module.css";
@@ -32,7 +33,7 @@ export default function RootLayout({
       >
          <div className={styles.header}>
           <div className={styles.headerWrapper}>
-            <a className={styles.logo} href="/">E</a>
+            <Link className={styles.logo} href="/">E</Link>
 
             <Nav />
           </div>
@@ -41,14 +42,14 @@ export default function RootLayout({
         <main className={styles.main}>
           {children}
         </main>
-        
+
         <div className={styles.footer}>
           <div className={styles.footerWrapper}>
             <div className={styles.footerTop}>
               <div className={styles.branding}>
-                <a href="/">
+                <Link href="/">
                   <p className={styles.name}>j. estefan hu</p>
-                </a>
+                </Link>
                 <p>Software Developer</p>
                 <p>Seattle, Washington</p>
               </div>
@@ -56,16 +57,16 @@ export default function RootLayout({
               <div className={styles.footerNav}>
                 <span>
                   <h4>links</h4>
-                  <a href="/blg">blg</a>
-                  <a href="/lbrry">lbrry</a>
-                  <a href="/prjcts">prjcts</a>
+                  <Link href="/blg">blog</Link>
+                  <Link href="/rdng">reading</Link>
+                  <Link href="/prjcts">projects</Link>
                 </span>
 
                 <span>
                   <h4>me</h4>
-                  <a href="/">resume</a>
-                  <a href="/cntct">contact</a>
-                  <a href="/lgn">login</a>
+                  <Link href="/">resume</Link>
+                  <Link href="/cntct">contact</Link>
+                  <Link href="/lgn">login</Link>
                 </span>
               </div>
             </div>

@@ -196,7 +196,7 @@ export default function Home() {
               <ul>
                 <li>
                   Architected and shipped solutions that interfaced with
-                  multiple API's, such as Mapbox, MLS, and OAuth.
+                  multiple API&apos;s, such as Mapbox, MLS, and OAuth.
                 </li>
                 <li>
                   Lead Development of backends services, testing and
@@ -298,7 +298,7 @@ export default function Home() {
               <h4>Reading</h4>
               <ul>
                 <li>
-                  <a href="/lbrry">My Library</a>
+                  <a href="/rdng">My Library</a>
                 </li>
               </ul>
             </div>

@@ -7,7 +7,6 @@
   --max-width: 800px;
 
   --background: white;
-  --backgroundAccent: #f2f2f2;
   --borderColor: #e6e6e6;
   --layout: #ffffff;
   --text: #333333;
@@ -18,7 +17,6 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #1e1e1e;
-    --backgroundAccent: #292929;
     --borderColor: #181818;
     --layout: #181818;
     --text: #f3f3f3;
