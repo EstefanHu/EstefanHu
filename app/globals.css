@@ -7,7 +7,10 @@
   --max-width: 800px;
 
   --background: white;
-  --borderColor: #e6e6e6;
+  /* borders are invisible at rest: the same colour as the background, so a
+     border only shows when something else (a hover, an accent bar) changes
+     it. Keep this in step with --background. */
+  --borderColor: #ffffff;
   --layout: #ffffff;
   --text: #333333;
   --textSecondary: #757575;
@@ -17,7 +20,8 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #1e1e1e;
-    --borderColor: #181818;
+    /* matches --background above */
+    --borderColor: #1e1e1e;
     --layout: #181818;
     --text: #f3f3f3;
     --component: #1e1e1e;

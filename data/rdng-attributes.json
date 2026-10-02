@@ -44,7 +44,7 @@
   "Night": {
     "genres": [
       "Religion",
-      "Children's",
+      "YA",
       "History",
       "Biography",
       "War",
@@ -60,7 +60,7 @@
   "Harry Potter and the Prisoner of Azkaban (Harry Potter, #3)": {
     "genres": [
       "Fantasy",
-      "Children's",
+      "YA",
       "Adventure",
       "Science fiction",
       "Fiction"
@@ -148,8 +148,7 @@
     "genres": [
       "Fiction",
       "History",
-      "Children's",
-      "Young adult",
+      "YA",
       "Historical fiction",
       "Romance",
       "Drama",
@@ -162,7 +161,7 @@
     "genres": [
       "Fiction",
       "Adventure",
-      "Children's",
+      "YA",
       "History",
       "Nautical",
       "Graphic novels",
@@ -189,7 +188,7 @@
       "Horror",
       "Science fiction",
       "Mystery",
-      "Children's",
+      "YA",
       "History",
       "Short stories",
       "War",
@@ -201,8 +200,7 @@
   },
   "Gulliver’s Travels": {
     "genres": [
-      "Young adult",
-      "Children's",
+      "YA",
       "Fiction",
       "Fantasy",
       "Humor",
@@ -267,7 +265,7 @@
       "Adventure",
       "History",
       "Humor",
-      "Children's",
+      "YA",
       "Satire",
       "Travel",
       "Fiction",
@@ -279,7 +277,7 @@
     "genres": [
       "Fiction",
       "Adventure",
-      "Children's",
+      "YA",
       "Thriller",
       "History"
     ]
@@ -288,7 +286,7 @@
     "genres": [
       "Religion",
       "Satire",
-      "Children's",
+      "YA",
       "Science fiction",
       "Fiction",
       "Dystopian",
@@ -315,7 +313,7 @@
   },
   "The War of the Worlds": {
     "genres": [
-      "Children's",
+      "YA",
       "Science fiction",
       "Fiction",
       "Romance",
@@ -355,15 +353,14 @@
       "Fantasy",
       "Espionage",
       "Fiction",
-      "Children's"
+      "YA"
     ]
   },
   "A Court of Frost and Starlight (A Court of Thorns and Roses, #4)": {
     "genres": [
       "Fantasy",
       "Fiction",
-      "Young adult",
-      "Children's"
+      "YA"
     ]
   },
   "The Manchurian Candidate": {
@@ -381,7 +378,7 @@
       "Fantasy",
       "Fiction",
       "Mythology",
-      "Children's",
+      "YA",
       "Adventure",
       "Biography"
     ]
@@ -439,7 +436,7 @@
     "genres": [
       "Fiction",
       "Coming of age",
-      "Children's"
+      "YA"
     ]
   },
   "Man's Search for Meaning": {
@@ -465,9 +462,8 @@
     "genres": [
       "Fantasy",
       "Fiction",
-      "Children's",
-      "Romance",
-      "Young adult"
+      "YA",
+      "Romance"
     ]
   },
   "A Court of Mist and Fury (A Court of Thorns and Roses, #2)": {
@@ -487,7 +483,7 @@
       "Fiction",
       "Drama",
       "Horror",
-      "Children's",
+      "YA",
       "Short stories",
       "History",
       "Historical fiction",
@@ -579,7 +575,7 @@
       "Fiction",
       "Historical fiction",
       "History",
-      "Children's",
+      "YA",
       "War",
       "Graphic novels",
       "Drama",
@@ -687,7 +683,7 @@
       "Philosophy",
       "Fiction",
       "Politics",
-      "Children's",
+      "YA",
       "History"
     ]
   },
@@ -697,10 +693,9 @@
       "Nautical",
       "Science fiction",
       "Adventure",
-      "Children's",
+      "YA",
       "Fantasy",
       "Thriller",
-      "Young adult",
       "Graphic novels",
       "Romance"
     ]
@@ -749,7 +744,7 @@
       "History",
       "Medicine",
       "Nautical",
-      "Children's"
+      "YA"
     ]
   },
   "The Origins and History of Consciousness": {
@@ -764,7 +759,7 @@
       "Contemporary fiction",
       "Literary fiction",
       "Fiction",
-      "Children's",
+      "YA",
       "History"
     ]
   },
@@ -775,7 +770,7 @@
       "Fiction",
       "Mythology",
       "Travel",
-      "Children's",
+      "YA",
       "Philosophy",
       "Drama"
     ]
@@ -866,7 +861,7 @@
       "History",
       "Contemporary fiction",
       "Drama",
-      "Children's",
+      "YA",
       "Medicine",
       "Politics"
     ]
@@ -894,8 +889,7 @@
     "genres": [
       "Fiction",
       "Science fiction",
-      "Children's",
-      "Young adult"
+      "YA"
     ]
   },
   "Life of Pi": {
@@ -915,12 +909,11 @@
   },
   "The Giver (Giver, #1)": {
     "genres": [
-      "Children's",
+      "YA",
       "Fiction",
       "Science fiction",
       "Dystopian",
       "Graphic novels",
-      "Young adult",
       "Fantasy",
       "Coming of age",
       "Adventure"
@@ -934,7 +927,7 @@
       "Graphic novels",
       "Mathematics",
       "Mythology",
-      "Children's",
+      "YA",
       "Philosophy",
       "War"
     ]
@@ -950,7 +943,7 @@
       "Fiction",
       "War",
       "Science fiction",
-      "Children's",
+      "YA",
       "Biography",
       "History"
     ]
@@ -1009,12 +1002,12 @@
     "genres": [
       "Fantasy",
       "Fiction",
-      "Children's"
+      "YA"
     ]
   },
   "The Last Battle (Chronicles of Narnia, #7)": {
     "genres": [
-      "Children's",
+      "YA",
       "Science fiction",
       "Fiction",
       "Fantasy",
@@ -1056,14 +1049,14 @@
       "Fantasy",
       "Adventure",
       "Fiction",
-      "Children's",
+      "YA",
       "Mythology"
     ]
   },
   "Prince Caspian (Chronicles of Narnia, #2)": {
     "genres": [
       "Fantasy",
-      "Children's",
+      "YA",
       "Fiction",
       "Mythology",
       "Adventure",
@@ -1183,7 +1176,7 @@
       "Drama",
       "Fiction",
       "Historical fiction",
-      "Children's",
+      "YA",
       "Romance",
       "Contemporary fiction",
       "Graphic novels"
@@ -1192,7 +1185,7 @@
   "The Catcher in the Rye": {
     "genres": [
       "Fiction",
-      "Children's",
+      "YA",
       "Coming of age"
     ]
   },
@@ -1268,7 +1261,7 @@
     "genres": [
       "Fiction",
       "Mystery",
-      "Children's"
+      "YA"
     ]
   },
   "The Metamorphosis": {
@@ -1333,7 +1326,7 @@
   "Gilead (Gilead, #1)": {
     "genres": [
       "Fiction",
-      "Children's",
+      "YA",
       "Religion",
       "Contemporary fiction"
     ]
@@ -1372,7 +1365,7 @@
       "Fiction",
       "Romance",
       "Gothic",
-      "Children's",
+      "YA",
       "History",
       "Graphic novels",
       "Coming of age",
