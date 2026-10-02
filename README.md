@@ -16,7 +16,17 @@ Open [http://localhost:3000](http://localhost:3000).
 | `npm start` | Serve the production build |
 | `npm run lint` | ESLint over the repo |
 
-The reading dashboard lives at `/rdng`.
+The reading dashboard lives at `/rdng`, the blog at `/blg`.
+
+## The blog
+
+`/blg` lists every post newest-first; each one links to `/blg/[slug]`, which renders the full post. Both routes are statically prerendered.
+
+- `app/blg/posts.ts` — all the content, as plain TypeScript. A post is a `slug`, some metadata (`excerpt`, `date`, `tags`) and a `body` of blocks: `paragraph`, `heading`, `quote`, `list`. No markdown parser and no front matter, so there is nothing to install. Dates are ISO strings and sort lexicographically, so ordering needs no `Date` parsing. Each card gets fixed-height text: the `excerpt` tagline on one line, then `preview` — the post's first paragraph — on two.
+- `app/blg/page.tsx` / `app/blg/page.module.css` — the list.
+- `app/blg/[slug]/page.tsx` / `app/blg/[slug]/post.module.css` — one post, with previous/next links derived from its position in the sorted list.
+
+Post bodies are lorem ipsum for now: drop real ones into `app/blg/posts.ts`, and once posts are written in Markdown somewhere else, replace that file with a loader that reads the CMS of your choice — the two pages only use `sortedPosts`, `getPost`, `preview`, `formatDate` and `readingTime`.
 
 ## The reading dashboard
 
@@ -66,6 +76,8 @@ Two things to know about the output. Coverage is partial — Open Library has no
 |---|---|
 | `/` | Resume |
 | `/rdng` | Reading dashboard |
-| `/blg`, `/prjcts` | Placeholders |
+| `/blg` | Blog, newest first |
+| `/blg/[slug]` | A single post |
+| `/prjcts` | Placeholder |
 | `/cntct` | Contact |
 | `/lgn` | Login form, no backend wired up |

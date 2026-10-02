@@ -71,7 +71,7 @@
   .book {
     /* Fixed height so every card matches regardless of what it contains; the
        cover is sized off --cover-width and keeps a 2:3 ratio from there. */
-    --card-height: 202px;
+    --card-height: 175px;
     --cover-width: 64px;
     display: flex;
     flex-direction: row;
@@ -80,11 +80,11 @@
     align-items: stretch;
     gap: 20px;
     height: var(--card-height);
-    padding: 8px 18px;
+    padding: 0px 18px;
     background-color: var(--background);
     border: 1px solid var(--borderColor);
     border-left: 3px solid var(--accent);
-    border-radius: var(--border-radius);
+    margin-bottom: 10px;
 
     .cover {
       /* centred against the text block so a short cover doesn't leave a hole
@@ -97,7 +97,6 @@
       object-fit: cover;
       object-position: center top;
       font-size: 0; /* keeps alt text from showing on a failed load */
-      border-radius: 4px;
       border: 1px solid var(--borderColor);
       background-color: var(--component);
     }
@@ -179,7 +178,9 @@
     }
 
     .star {
-      color: var(--borderColor);
+      /* was --borderColor, which is now the same as the background: empty
+         stars need a colour that actually shows against it */
+      color: var(--textSecondary);
     }
 
     .starFilled {

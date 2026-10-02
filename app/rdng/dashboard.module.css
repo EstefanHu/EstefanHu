@@ -30,7 +30,6 @@
   background-color: var(--background);
   border: 1px solid var(--borderColor);
   border-top: 2px solid var(--accent);
-  border-radius: var(--border-radius);
 }
 
 .tileLabel {
@@ -121,7 +120,9 @@
 .barTrack {
   flex-grow: 1;
   height: 8px;
-  background-color: var(--borderColor);
+  /* was --borderColor, which is now the same as the background: the empty
+     part of the bar needs a fill that shows against it */
+  background-color: var(--component);
   border-radius: 999px;
   overflow: hidden;
 }
