@@ -16,7 +16,7 @@ Open [http://localhost:3000](http://localhost:3000).
 | `npm start` | Serve the production build |
 | `npm run lint` | ESLint over the repo |
 
-The reading dashboard lives at `/rdng`, the blog at `/blg`.
+The reading dashboard lives at `/rdng`, the blog at `/blg`, the projects at `/prjcts`.
 
 ## The blog
 
@@ -27,6 +27,16 @@ The reading dashboard lives at `/rdng`, the blog at `/blg`.
 - `app/blg/[slug]/page.tsx` / `app/blg/[slug]/post.module.css` — one post, with previous/next links derived from its position in the sorted list.
 
 Post bodies are lorem ipsum for now: drop real ones into `app/blg/posts.ts`, and once posts are written in Markdown somewhere else, replace that file with a loader that reads the CMS of your choice — the two pages only use `sortedPosts`, `getPost`, `preview`, `formatDate` and `readingTime`.
+
+## The projects
+
+`/prjcts` lists every project, featured ones first and then newest year; each one links to `/prjcts/[slug]`, which renders the full write-up. Both routes are statically prerendered.
+
+- `app/prjcts/projects.ts` — all the content, as plain TypeScript, same shape as the blog's: a `slug`, metadata for the card (`excerpt`, `year`, `status`, `role`, `tags`), a `stack` of tools, optional `links`, and a `body` of blocks (`paragraph`, `heading`, `quote`, `list`). Add an entry, rebuild.
+- `app/prjcts/page.tsx` / `app/prjcts/page.module.css` — the list.
+- `app/prjcts/[slug]/page.tsx` / `app/prjcts/[slug]/project.module.css` — one project, with previous/next links derived from its position in the sorted list.
+
+The list cards are the blog cards: the card is the link, the accent bar grows and the title turns on hover.
 
 ## The reading dashboard
 
@@ -78,6 +88,7 @@ Two things to know about the output. Coverage is partial — Open Library has no
 | `/rdng` | Reading dashboard |
 | `/blg` | Blog, newest first |
 | `/blg/[slug]` | A single post |
-| `/prjcts` | Placeholder |
+| `/prjcts` | Projects, featured first then newest |
+| `/prjcts/[slug]` | A single project |
 | `/cntct` | Contact |
 | `/lgn` | Login form, no backend wired up |

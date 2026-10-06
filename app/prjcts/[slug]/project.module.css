@@ -1,0 +1,261 @@
+.header {
+  padding: 50px 0 40px;
+  text-align: right;
+  /* the accent bar reads as the same card the list uses, opened up */
+  border-bottom: 1px solid var(--borderColor);
+  padding-left: 20px;
+  border-left: 3px solid var(--accent);
+  margin-bottom: 35px;
+
+  .title {
+    font-size: 2.4rem;
+    line-height: 1.2;
+    font-weight: bold;
+    text-transform: capitalize;
+    color: var(--text);
+    margin-bottom: 12px;
+  }
+
+  /* the card's tagline, given a line of its own here */
+  .tagline {
+    font-size: 1rem;
+    line-height: 26px;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 18px;
+  }
+
+  .meta {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 8px 14px;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--textSecondary);
+
+    > span {
+      display: flex;
+      gap: 5px;
+    }
+  }
+
+  .metaLabel {
+    font-weight: bold;
+  }
+
+  .tag {
+    padding: 3px 8px;
+    border-radius: 99px;
+    background-color: var(--component);
+    color: var(--textSecondary);
+    border: 1px solid var(--borderColor);
+    white-space: nowrap;
+  }
+
+  @media only screen and (max-width: 500px) {
+    padding-top: 20px;
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+
+    .title {
+      font-size: 1.8rem;
+    }
+
+    .meta {
+      justify-content: flex-start;
+    }
+  }
+}
+
+.body {
+  max-width: 680px;
+
+  /* the summary, called out from the body blocks that follow it */
+  .lead {
+    font-size: 1.15rem;
+    line-height: 31px;
+    color: var(--text);
+    margin-bottom: 28px;
+  }
+
+  .paragraph {
+    font-size: 1.05rem;
+    line-height: 30px;
+    color: var(--text);
+    margin-bottom: 22px;
+  }
+
+  .heading {
+    font-size: 1.25rem;
+    font-weight: bold;
+    text-transform: capitalize;
+    color: var(--accent);
+    margin: 35px 0 18px;
+  }
+
+  .quote {
+    margin: 28px 0;
+    padding: 5px 0 5px 20px;
+    border-left: 2px solid var(--accent);
+
+    p {
+      font-size: 1.1rem;
+      line-height: 30px;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+
+    .attribution {
+      font-style: normal;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--textSecondary);
+    }
+  }
+
+  .list {
+    margin: 0 0 22px 20px;
+    font-size: 1.05rem;
+    line-height: 28px;
+    color: var(--text);
+
+    li {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+/* the tools row, laid out like a label/value pair on the rest of the site */
+.stack {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  margin-top: 40px;
+  padding-top: 25px;
+  border-top: 1px solid var(--borderColor);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+
+  .stackLabel {
+    font-weight: bold;
+    color: var(--textSecondary);
+  }
+
+  .stackList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .stackItem {
+    padding: 3px 8px;
+    border-radius: 99px;
+    background-color: var(--component);
+    color: var(--textSecondary);
+    border: 1px solid var(--borderColor);
+    white-space: nowrap;
+  }
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+
+  .link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 16px;
+    border: 1px solid var(--accent);
+    border-radius: var(--border-radius);
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    transition: background-color 0.2s, color 0.2s;
+
+    &:hover {
+      background-color: var(--accent);
+      color: var(--background);
+    }
+
+    /* the label and the arrow kept as one child, so <Link> gets a single node */
+    .linkLabel {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .linkArrow {
+      transition: transform 0.2s;
+      display: inline-block;
+    }
+
+    &:hover .linkArrow {
+      transform: translateX(3px);
+    }
+  }
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 25px;
+  margin-top: 45px;
+  padding-top: 25px;
+  border-top: 1px solid var(--borderColor);
+
+  .pager {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+  }
+
+  .pagerLink {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    max-width: 45%;
+    font-size: 0.95rem;
+    font-weight: bold;
+    line-height: 22px;
+    text-transform: capitalize;
+    color: var(--text);
+    transition: color 0.2s;
+
+    &:hover {
+      color: var(--accent);
+    }
+  }
+
+  .pagerNext {
+    text-align: right;
+  }
+
+  .pagerLabel {
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--textSecondary);
+  }
+
+  .back {
+    font-size: 0.85rem;
+    color: var(--textSecondary);
+
+    &:hover {
+      color: var(--accent);
+    }
+  }
+}

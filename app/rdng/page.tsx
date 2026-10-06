@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import { Book, currentlyReading, formatDate, readBooks } from './books'
 import { buildRecentlyRead } from './recently-read'
 import { loadAttributes, BookAttributes } from './attributes'
@@ -6,6 +7,11 @@ import Dashboard from './dashboard'
 import styles from './page.module.css'
 
 const MAX_RATING = 5
+
+export const metadata: Metadata = {
+  title: 'Reading',
+  description: 'Books I am currently reading and have read',
+}
 
 function Rating({ rating }: { rating: number }) {
   if (!rating) return null

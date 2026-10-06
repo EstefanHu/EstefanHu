@@ -1,13 +1,19 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { formatDate, preview, readingTime, sortedPosts } from './posts'
 import styles from './page.module.css'
+
+export const metadata: Metadata = {
+  title: 'Blog',
+  description: `${sortedPosts.length} posts - notes and thoughts`,
+}
 
 function page() {
   return (
     <>
       <div className={styles.header}>
         <h1 className={styles.title}>
-          My <span>Blog</span>
+          A <span>Blog</span>
         </h1>
         <p className={styles.subtitle}>
           {sortedPosts.length} posts &mdash; notes and thoughts

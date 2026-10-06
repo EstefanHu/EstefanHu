@@ -45,11 +45,6 @@ export default function Home() {
             <a href="#technology">technology</a>
             <a href="#skills">skills</a>
             <a href="#education">education</a>
-            <a href="#misc">misc</a>
-            <div className={styles.subLinks}>
-              <a href="#projects">projects</a>
-              <a href="#blog">blog</a>
-            </div>
           </div>
         </div>
 
@@ -287,16 +282,6 @@ export default function Home() {
             </div>
           </section>
 
-
-          <section id="misc" className={styles.misc}>
-            <h3>Misc</h3>
-            <div id="projects">
-              <h4>Projects</h4>
-            </div>
-            <div id="blog">
-              <h4>Blog</h4>
-            </div>
-          </section>
         </div>
       </div>
     </>

@@ -17,7 +17,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Estefan Hu - Software Developer",
+  title: {
+    default: "Estefan Hu - Software Developer",
+    template: "%s | Estefan Hu",
+  },
   description: "My Resume Website",
 };
 
