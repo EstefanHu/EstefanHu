@@ -23,8 +23,12 @@ export default function Home() {
             linkedin.com/in/estefanhu
           </a>
           &nbsp;-&nbsp;
-          <a target="_blank" rel="noopener noreferrer" href="/">
-            estefanhu.com
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://estefanhu.dev"
+          >
+            estefanhu.dev
           </a>
         </p>
       </div>

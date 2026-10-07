@@ -22,6 +22,7 @@ export const metadata: Metadata = {
     template: "%s | Estefan Hu",
   },
   description: "My Resume Website",
+  metadataBase: new URL("https://estefanhu.dev"),
 };
 
 export default function RootLayout({
