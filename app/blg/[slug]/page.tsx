@@ -96,32 +96,33 @@ async function page({ params }: Params) {
       </header>
 
       <div className={styles.body}>
-        <Blocks post={post} />
+      <Blocks post={post} />
+    </div>
+
+    <footer className={styles.footer}>
+      <div className={styles.pager}>
+        {older ? (
+          <Link className={styles.pagerLink} href={`/blg/${older.slug}`}>
+            <span className={styles.pagerLabel}>Older</span>
+            {older.title}
+          </Link>
+        ) : (
+          <span />
+        )}
+
+        {newer && (
+          <Link className={`${styles.pagerLink} ${styles.pagerNewer}`} href={`/blg/${newer.slug}`}>
+            <span className={styles.pagerLabel}>Newer</span>
+            {newer.title}
+          </Link>
+        )}
       </div>
 
-      <footer className={styles.footer}>
-        <div className={styles.pager}>
-          {older ? (
-            <Link className={styles.pagerLink} href={`/blg/${older.slug}`}>
-              <span className={styles.pagerLabel}>Older</span>
-              {older.title}
-            </Link>
-          ) : (
-            <span />
-          )}
+      <Link className={styles.back} href="/blg">
+        &larr; all posts
+      </Link>
+    </footer>
 
-          {newer && (
-            <Link className={`${styles.pagerLink} ${styles.pagerNewer}`} href={`/blg/${newer.slug}`}>
-              <span className={styles.pagerLabel}>Newer</span>
-              {newer.title}
-            </Link>
-          )}
-        </div>
-
-        <Link className={styles.back} href="/blg">
-          &larr; all posts
-        </Link>
-      </footer>
     </article>
   )
 }

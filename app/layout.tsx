@@ -5,6 +5,8 @@ import "./globals.css";
 import styles from "./layout.module.css";
 
 import Nav from "./nav";
+import Logo from "./logo";
+import { GithubIcon, GoodreadsIcon, LinkedinIcon } from "./social-icons";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,7 +39,7 @@ export default function RootLayout({
       >
          <div className={styles.header}>
           <div className={styles.headerWrapper}>
-            <Link className={styles.logo} href="/">E</Link>
+            <Logo />
 
             <Nav />
           </div>
@@ -80,17 +82,28 @@ export default function RootLayout({
                 <a
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="LinkedIn"
                   href="https://www.linkedin.com/in/estefanhu/"
                 >
-                  L
+                  <LinkedinIcon />
                 </a>
 
                 <a
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="GitHub"
                   href="https://github.com/estefanhu/"
                 >
-                  G
+                  <GithubIcon />
+                </a>
+
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Goodreads"
+                  href="https://www.goodreads.com/user/show/201896396-estefan-hu"
+                >
+                  <GoodreadsIcon />
                 </a>
               </span>
               <p>&copy; 2026 Justin Estefan Hu - all rights reserved</p>

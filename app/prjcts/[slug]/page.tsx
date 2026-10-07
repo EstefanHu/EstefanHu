@@ -105,68 +105,69 @@ async function page({ params }: Params) {
       </header>
 
       <div className={styles.body}>
-        <p className={styles.lead}>{project.summary}</p>
+      <p className={styles.lead}>{project.summary}</p>
 
-        <Blocks project={project} />
-      </div>
+      <Blocks project={project} />
+    </div>
 
-      <div className={styles.stack}>
-        <span className={styles.stackLabel}>Built with</span>
-        <span className={styles.stackList}>
-          {project.stack.map((tool) => (
-            <span className={styles.stackItem} key={tool}>
-              {tool}
+    <div className={styles.stack}>
+      <span className={styles.stackLabel}>Built with</span>
+      <span className={styles.stackList}>
+        {project.stack.map((tool) => (
+          <span className={styles.stackItem} key={tool}>
+            {tool}
+          </span>
+        ))}
+      </span>
+    </div>
+
+    {project.links.length > 0 && (
+      <div className={styles.links}>
+        {project.links.map((link) => (
+          <Link
+            className={styles.link}
+            href={link.href}
+            /* external links open in a new tab, internal ones stay in the SPA */
+            {...(link.href.startsWith('/')
+              ? {}
+              : { target: '_blank', rel: 'noopener noreferrer' })}
+            key={link.label}
+          >
+            {/* one child only: <Link> forwards its children into the <a>, and
+               two of them become a keyless array, which React warns about */}
+            <span className={styles.linkLabel}>
+              {link.label}
+              <span className={styles.linkArrow}>&rarr;</span>
             </span>
-          ))}
-        </span>
+          </Link>
+        ))}
+      </div>
+    )}
+
+    <footer className={styles.footer}>
+      <div className={styles.pager}>
+        {previous ? (
+          <Link className={styles.pagerLink} href={`/prjcts/${previous.slug}`}>
+            <span className={styles.pagerLabel}>Previous</span>
+            {previous.title}
+          </Link>
+        ) : (
+          <span />
+        )}
+
+        {next && (
+          <Link className={`${styles.pagerLink} ${styles.pagerNext}`} href={`/prjcts/${next.slug}`}>
+            <span className={styles.pagerLabel}>Next</span>
+            {next.title}
+          </Link>
+        )}
       </div>
 
-      {project.links.length > 0 && (
-        <div className={styles.links}>
-          {project.links.map((link) => (
-            <Link
-              className={styles.link}
-              href={link.href}
-              /* external links open in a new tab, internal ones stay in the SPA */
-              {...(link.href.startsWith('/')
-                ? {}
-                : { target: '_blank', rel: 'noopener noreferrer' })}
-              key={link.label}
-            >
-              {/* one child only: <Link> forwards its children into the <a>, and
-                 two of them become a keyless array, which React warns about */}
-              <span className={styles.linkLabel}>
-                {link.label}
-                <span className={styles.linkArrow}>&rarr;</span>
-              </span>
-            </Link>
-          ))}
-        </div>
-      )}
+      <Link className={styles.back} href="/prjcts">
+        &larr; all projects
+      </Link>
+    </footer>
 
-      <footer className={styles.footer}>
-        <div className={styles.pager}>
-          {previous ? (
-            <Link className={styles.pagerLink} href={`/prjcts/${previous.slug}`}>
-              <span className={styles.pagerLabel}>Previous</span>
-              {previous.title}
-            </Link>
-          ) : (
-            <span />
-          )}
-
-          {next && (
-            <Link className={`${styles.pagerLink} ${styles.pagerNext}`} href={`/prjcts/${next.slug}`}>
-              <span className={styles.pagerLabel}>Next</span>
-              {next.title}
-            </Link>
-          )}
-        </div>
-
-        <Link className={styles.back} href="/prjcts">
-          &larr; all projects
-        </Link>
-      </footer>
     </article>
   )
 }

@@ -35,6 +35,12 @@
     font-weight: bold;
     transition: color 0.2s;
   }
+
+  /* you are on the landing page, so the way home is already lit up */
+  .logoSelected,
+  .logo:hover {
+    color: var(--accent);
+  }
 }
 
 .nav {
@@ -42,7 +48,7 @@
   align-items: center;
   justify-content: space-between;
   height: 100%;
-  width: 190px;
+  width: 150px;
 
   & .selected {
     color: var(--accent);
@@ -149,12 +155,30 @@
 .legal {
   font-size: 0.8rem;
   cursor: default;
+  /* the copyright line is a single row of text next to the taller icons, so
+     drop it to the bottom of that row instead of letting it float to the top */
+  align-items: flex-end;
 
   span {
     a {
       height: 25px;
       width: 25px;
       margin-right: 10px;
+      /* the anchors are just boxes now, so line them up with the icons
+         instead of leaving them to the inline baseline */
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--textSecondary);
+      transition: color 0.2s;
+
+      &:hover {
+        color: var(--accent);
+      }
+
+      svg {
+        display: block;
+      }
     }
   }
 }

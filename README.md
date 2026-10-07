@@ -16,7 +16,7 @@ Open [http://localhost:3000](http://localhost:3000).
 | `npm start` | Serve the production build |
 | `npm run lint` | ESLint over the repo |
 
-The reading dashboard lives at `/rdng`, the blog at `/blg`, the projects at `/prjcts`.
+The reading dashboard lives at `/rdng`, the blog at `/blg`, the projects at `/prjcts`; `/` is the resume.
 
 ## The blog
 
