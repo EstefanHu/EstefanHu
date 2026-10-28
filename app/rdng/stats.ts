@@ -114,7 +114,10 @@ export function buildStats(allBooks: Book[]): LibraryStats {
       : 0
 
   const longest = [...books].filter((book) => book.pages).sort((a, b) => b.pages! - a.pages!)[0]
-  const shortest = [...books].filter((book) => book.pages).sort((a, b) => a.pages! - b.pages!)[0]
+
+  const currentYear = String(new Date().getFullYear())
+  const readThisYear = books.filter((book) => book.finishedAt?.startsWith(currentYear))
+  const pagesThisYear = readThisYear.reduce((sum, book) => sum + pagesOf(book), 0)
 
   const lengthCounts = groupCount(books, (book) => (book.pages ? lengthBucket(book.pages) : ''))
   const lengths = LENGTH_ORDER.map((label) => ({
@@ -147,11 +150,11 @@ export function buildStats(allBooks: Book[]): LibraryStats {
 
   const tiles: StatTile[] = [
     { label: 'Books read', value: totalBooks.toLocaleString('en-US'), detail: `${rated.length.toLocaleString('en-US')} of them rated` },
+    { label: `Read in ${currentYear}`, value: readThisYear.length.toLocaleString('en-US'), detail: `${pagesThisYear.toLocaleString('en-US')} pages so far` },
     { label: 'Pages read', value: totalPages.toLocaleString('en-US'), detail: `across ${withPages.length.toLocaleString('en-US')} editions` },
     { label: 'Average rating', value: rated.length ? averageRating.toFixed(2) : '—', detail: `out of 5, from ${rated.length} ratings` },
     { label: 'Average length', value: `${averagePages.toLocaleString('en-US')} pp`, detail: `from ${withPages.length} editions` },
     { label: 'Longest book', value: longest ? `${longest.pages!.toLocaleString('en-US')} pp` : '—', detail: longest?.title },
-    { label: 'Shortest book', value: shortest ? `${shortest.pages!.toLocaleString('en-US')} pp` : '—', detail: shortest?.title },
     { label: 'Authors', value: uniqueAuthors.toLocaleString('en-US'), detail: 'unique across the library' },
   ]
 
