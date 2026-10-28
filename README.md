@@ -46,9 +46,7 @@ The list cards are the blog cards: the card is the link, the accent bar grows an
 - `data/goodreads.csv` — a copy of the export from Goodreads: *My Books → Import and export → Export Library*. Only the columns this site reads are used; the rest are ignored. Replace the file and rebuild to refresh.
 - `app/rdng/books.ts` — parses the CSV (a hand-rolled RFC 4180 reader), normalises dates and ratings, and decides which shelves count as read. `EXCLUDED_SHELVES` is the knob: every shelf not listed is counted as read, so books you finished but never moved off `to-read` still show up.
 - `app/rdng/stats.ts` — turns those books into the tiles and charts (page length, publication era).
-- `app/rdng/recently-read.ts` — books finished in the current calendar month, falling back to the most recent month that has any, which is what you see if you haven't logged a read this month yet.
-
-Because the page is statically prerendered, "this month" is resolved at **build** time. Rebuild for it to move on.
+- `app/rdng/recently-read.ts` — the 10 most recently finished books, newest first. Books with no finish date are left out.
 
 ### Syncing from Goodreads
 

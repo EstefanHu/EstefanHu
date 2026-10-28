@@ -141,12 +141,12 @@ function page() {
 
       <Dashboard />
 
-      {recentlyRead.books.length > 0 && (
+      {recentlyRead.length > 0 && (
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>Recently Read</h2>
 
           <div className={styles.bookList}>
-            {recentlyRead.books.map((book) => (
+            {recentlyRead.map((book) => (
               <BookCard
                 key={book.title}
                 book={book}
