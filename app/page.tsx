@@ -247,9 +247,8 @@ export default function Home() {
             <h3>technology</h3>
             <p>
               <span>languages: </span>
-              Go &#183; C# &#183; C++ &#183; Lua &#183; JavaScript &#183; Java
-              &#183; Python &#183; BASIC &#183; PHP &#183; Bash &#183; Perl
-              &#183; SQL &#183; Ruby
+              Go &#183; C# &#183; C++ &#183; JavaScript &#183; Java &#183;
+              Python &#183; BASIC &#183; PHP &#183; Bash &#183; SQL
             </p>
             <p>
               <span>tools: </span>
