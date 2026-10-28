@@ -15,6 +15,7 @@ Open [http://localhost:3000](http://localhost:3000).
 | `npm run build` | Production build |
 | `npm start` | Serve the production build |
 | `npm run lint` | ESLint over the repo |
+| `npm run sync-books` | Pull your Goodreads shelves and refresh `/rdng`'s data |
 
 The reading dashboard lives at `/rdng`, the blog at `/blg`, the projects at `/prjcts`; `/` is the resume.
 
@@ -48,6 +49,20 @@ The list cards are the blog cards: the card is the link, the accent bar grows an
 - `app/rdng/recently-read.ts` — books finished in the current calendar month, falling back to the most recent month that has any, which is what you see if you haven't logged a read this month yet.
 
 Because the page is statically prerendered, "this month" is resolved at **build** time. Rebuild for it to move on.
+
+### Syncing from Goodreads
+
+```sh
+npm run sync-books              # sync, enrich, refresh genres
+npm run sync-books -- --dry-run # show what would change
+npm run sync-books -- --build   # and run `next build`
+```
+
+`scripts/sync-books.mjs` replaces the manual export. It reads each shelf's public RSS feed (the profile must stay public; the user ID and the list of exclusive shelves are constants at the top), and merges by Book Id into `data/goodreads.csv`: shelf, rating, read date and shelves follow Goodreads, new books are added, and books gone from a fetched shelf are dropped. Columns the feed doesn't carry (reviews, notes, additional authors) are kept, and values are only ever filled, never blanked.
+
+Books with no ISBN13 get no cover and no genres, so the script then looks them up by title and author on Open Library and fills in the ISBN of the edition Open Library draws the cover from, plus any missing page count. Results — misses included — are cached in `data/openlibrary-isbns.json`; delete an entry to retry it. Finally it runs `fetch-genres.mjs` for the new ISBNs.
+
+A book whose edition you change on Goodreads gets a new Book Id, so it shows up as one removal and one addition.
 
 ## Genres and moods
 

@@ -29,6 +29,15 @@
       "Christmas"
     ]
   },
+  "The Kite Runner": {
+    "genres": [
+      "Fiction",
+      "Literary fiction",
+      "Historical fiction",
+      "Coming of age",
+      "Drama"
+    ]
+  },
   "A Thousand Splendid Suns": {
     "genres": [
       "Fiction"
@@ -39,6 +48,12 @@
       "Fiction",
       "History",
       "Graphic novels"
+    ]
+  },
+  "The Diary of a Young Girl": {
+    "genres": [
+      "History",
+      "Biography"
     ]
   },
   "Night": {
@@ -93,6 +108,12 @@
       "Fiction",
       "Coming of age",
       "Religion"
+    ]
+  },
+  "Prelude to Foundation (Foundation, #6)": {
+    "genres": [
+      "Fiction",
+      "Science fiction"
     ]
   },
   "Foundation's Edge (Foundation, #4)": {
@@ -228,6 +249,15 @@
       "Nature"
     ]
   },
+  "The Sun Also Rises": {
+    "genres": [
+      "Fiction",
+      "History",
+      "War",
+      "Romance",
+      "Historical fiction"
+    ]
+  },
   "A Farewell to Arms": {
     "genres": [
       "Fiction",
@@ -282,6 +312,20 @@
       "History"
     ]
   },
+  "The Myth of Sisyphus": {
+    "genres": [
+      "Philosophy",
+      "History",
+      "Mythology"
+    ]
+  },
+  "Demon Copperhead": {
+    "genres": [
+      "Fiction",
+      "Coming of age",
+      "Literary fiction"
+    ]
+  },
   "A Clockwork Orange": {
     "genres": [
       "Religion",
@@ -293,11 +337,25 @@
       "Adventure"
     ]
   },
+  "The Three Musketeers": {
+    "genres": [
+      "Fiction",
+      "History"
+    ]
+  },
   "Project Hail Mary": {
     "genres": [
       "Fiction",
       "Science fiction",
       "Thriller"
+    ]
+  },
+  "Red Rising (Red Rising Saga, #1)": {
+    "genres": [
+      "Fantasy",
+      "Fiction",
+      "YA",
+      "Adventure"
     ]
   },
   "We": {
@@ -323,6 +381,12 @@
       "Adventure"
     ]
   },
+  "Norwegian Wood": {
+    "genres": [
+      "Fiction",
+      "Romance"
+    ]
+  },
   "The Midnight Library (The Midnight World, #1)": {
     "genres": [
       "Fiction",
@@ -334,6 +398,11 @@
     "genres": [
       "History",
       "Art"
+    ]
+  },
+  "Modern Man in Search of a Soul": {
+    "genres": [
+      "Psychology"
     ]
   },
   "Man and His Symbols": {
@@ -439,6 +508,20 @@
       "YA"
     ]
   },
+  "Sapiens: A Brief History of Humankind": {
+    "genres": [
+      "Science",
+      "History",
+      "Graphic novels",
+      "Psychology"
+    ]
+  },
+  "Mindset: The New Psychology of Success": {
+    "genres": [
+      "Psychology",
+      "Science"
+    ]
+  },
   "Man's Search for Meaning": {
     "genres": [
       "War",
@@ -458,6 +541,50 @@
       "Economics"
     ]
   },
+  "The Song of Achilles": {
+    "genres": [
+      "Fiction",
+      "History",
+      "War"
+    ]
+  },
+  "Things Fall Apart (The African Trilogy, #1)": {
+    "genres": [
+      "Fiction",
+      "Historical fiction",
+      "YA",
+      "Politics",
+      "History"
+    ]
+  },
+  "The Great Gatsby": {
+    "genres": [
+      "Fiction",
+      "YA",
+      "Graphic novels",
+      "History",
+      "Drama",
+      "Romance"
+    ]
+  },
+  "A Knight of the Seven Kingdoms (The Tales of Dunk and Egg, #1-3)": {
+    "genres": [
+      "Fiction",
+      "Fantasy",
+      "Adventure"
+    ]
+  },
+  "Fahrenheit 451": {
+    "genres": [
+      "Science fiction",
+      "Politics",
+      "Satire",
+      "Fiction",
+      "Dystopian",
+      "Drama",
+      "Horror"
+    ]
+  },
   "A Court of Thorns and Roses (A Court of Thorns and Roses, #1)": {
     "genres": [
       "Fantasy",
@@ -475,6 +602,11 @@
   "Zero to One: Notes on Startups, or How to Build the Future": {
     "genres": [
       "Politics"
+    ]
+  },
+  "The Tipping Point: How Little Things Can Make a Big Difference": {
+    "genres": [
+      "Psychology"
     ]
   },
   "A Christmas Carol": {
@@ -570,6 +702,13 @@
       "Fiction"
     ]
   },
+  "The Screwtape Letters (Screwtape, #1)": {
+    "genres": [
+      "Fiction",
+      "Religion",
+      "Satire"
+    ]
+  },
   "A Tale of Two Cities": {
     "genres": [
       "Fiction",
@@ -580,6 +719,12 @@
       "Graphic novels",
       "Drama",
       "Politics"
+    ]
+  },
+  "The Abolition of Man": {
+    "genres": [
+      "Religion",
+      "Philosophy"
     ]
   },
   "The Poisonwood Bible": {
@@ -612,6 +757,26 @@
     "genres": [
       "Fiction",
       "Science fiction"
+    ]
+  },
+  "Endurance: Shackleton's Incredible Voyage": {
+    "genres": [
+      "Travel",
+      "Biography",
+      "History"
+    ]
+  },
+  "Piranesi": {
+    "genres": [
+      "Fiction"
+    ]
+  },
+  "Lolita": {
+    "genres": [
+      "Romance",
+      "Fiction",
+      "Literary fiction",
+      "Drama"
     ]
   },
   "Parable of the Talents (Earthseed, #2)": {
@@ -653,6 +818,12 @@
       "Science fiction"
     ]
   },
+  "Silent Spring": {
+    "genres": [
+      "Science",
+      "Nature"
+    ]
+  },
   "Foundation and Earth (Foundation, #5)": {
     "genres": [
       "Fiction",
@@ -663,6 +834,17 @@
     "genres": [
       "Fiction",
       "Science fiction"
+    ]
+  },
+  "The Hound of the Baskervilles (Sherlock Holmes, #5)": {
+    "genres": [
+      "Mystery",
+      "Fiction",
+      "Drama",
+      "Christmas",
+      "History",
+      "YA",
+      "Short stories"
     ]
   },
   "The Adventure of the Dancing Men (Stories from the return of Sherlock Holmes)": {
@@ -687,6 +869,11 @@
       "History"
     ]
   },
+  "The Courage to be Happy: True Contentment Is In Your Power": {
+    "genres": [
+      "Psychology"
+    ]
+  },
   "Twenty Thousand Leagues Under the Sea": {
     "genres": [
       "Fiction",
@@ -708,6 +895,11 @@
       "History"
     ]
   },
+  "Pale Fire": {
+    "genres": [
+      "Fiction"
+    ]
+  },
   "Stoner": {
     "genres": [
       "Contemporary fiction",
@@ -724,6 +916,18 @@
       "Gothic",
       "Thriller",
       "Science fiction"
+    ]
+  },
+  "Alice’s Adventures in Wonderland / Through the Looking-Glass": {
+    "genres": [
+      "Adventure",
+      "Fiction",
+      "YA",
+      "Mythology",
+      "Fantasy",
+      "Humor",
+      "History",
+      "Philosophy"
     ]
   },
   "The Alchemist": {
@@ -745,6 +949,12 @@
       "Medicine",
       "Nautical",
       "YA"
+    ]
+  },
+  "Neuromancer (Sprawl, #1)": {
+    "genres": [
+      "Fiction",
+      "Science fiction"
     ]
   },
   "The Origins and History of Consciousness": {
@@ -775,6 +985,33 @@
       "Drama"
     ]
   },
+  "Lapvona": {
+    "genres": [
+      "Religion",
+      "Fiction",
+      "Fantasy",
+      "History"
+    ]
+  },
+  "Pachinko": {
+    "genres": [
+      "Fiction",
+      "History"
+    ]
+  },
+  "Do Androids Dream of Electric Sheep?": {
+    "genres": [
+      "Fiction",
+      "Science fiction",
+      "Adventure"
+    ]
+  },
+  "2001: A Space Odyssey (Space Odyssey, #1)": {
+    "genres": [
+      "Fiction",
+      "Science fiction"
+    ]
+  },
   "The Old Man and the Sea": {
     "genres": [
       "Fiction",
@@ -783,9 +1020,21 @@
       "Nautical"
     ]
   },
+  "Invisible Man": {
+    "genres": [
+      "Fiction",
+      "History"
+    ]
+  },
   "Thousand Cranes": {
     "genres": [
       "Fiction"
+    ]
+  },
+  "The Death of Ivan Ilych": {
+    "genres": [
+      "Fiction",
+      "Short stories"
     ]
   },
   "The Handmaid's Tale": {
@@ -801,12 +1050,27 @@
       "Graphic novels"
     ]
   },
+  "Beloved": {
+    "genres": [
+      "History",
+      "Fiction",
+      "Historical fiction",
+      "Mystery"
+    ]
+  },
   "Shadow & Claw": {
     "genres": [
       "Science fiction",
       "Fantasy",
       "Fiction",
       "Science"
+    ]
+  },
+  "The Crying of Lot 49": {
+    "genres": [
+      "Fiction",
+      "Poetry",
+      "Politics"
     ]
   },
   "How to Talk About Books You Haven't Read": {
@@ -824,6 +1088,20 @@
       "Fantasy",
       "Adventure",
       "Romance"
+    ]
+  },
+  "To Kill a Mockingbird": {
+    "genres": [
+      "Fiction",
+      "Contemporary fiction",
+      "Coming of age",
+      "YA"
+    ]
+  },
+  "The Joy Luck Club": {
+    "genres": [
+      "Fiction",
+      "Drama"
     ]
   },
   "White Teeth": {
@@ -844,6 +1122,20 @@
       "Mystery",
       "Thriller",
       "Literary fiction"
+    ]
+  },
+  "For Whom the Bell Tolls": {
+    "genres": [
+      "Fiction",
+      "History",
+      "War",
+      "Historical fiction"
+    ]
+  },
+  "There There": {
+    "genres": [
+      "Fiction",
+      "Politics"
     ]
   },
   "Steppenwolf": {
@@ -877,6 +1169,21 @@
       "Science fiction"
     ]
   },
+  "Cryptonomicon": {
+    "genres": [
+      "Fiction",
+      "Science fiction",
+      "History",
+      "Espionage"
+    ]
+  },
+  "The Remains of the Day": {
+    "genres": [
+      "Fiction",
+      "History",
+      "Historical fiction"
+    ]
+  },
   "Bloodchild and Other Stories": {
     "genres": [
       "Fiction",
@@ -885,11 +1192,39 @@
       "Dystopian"
     ]
   },
+  "Harry Potter and the Chamber of Secrets (Harry Potter, #2)": {
+    "genres": [
+      "Fantasy",
+      "Fiction",
+      "YA",
+      "Adventure",
+      "Humor"
+    ]
+  },
+  "Harry Potter and the Philosopher's Stone (Harry Potter, #1)": {
+    "genres": [
+      "YA",
+      "Fiction",
+      "Fantasy",
+      "Adventure",
+      "Mystery",
+      "Science fiction"
+    ]
+  },
   "Flowers for Algernon": {
     "genres": [
       "Fiction",
       "Science fiction",
       "YA"
+    ]
+  },
+  "Harry Potter and the Goblet of Fire (Harry Potter, #4)": {
+    "genres": [
+      "YA",
+      "Fiction",
+      "Fantasy",
+      "Drama",
+      "Adventure"
     ]
   },
   "Life of Pi": {
@@ -900,11 +1235,59 @@
       "Nautical"
     ]
   },
+  "The Lion, the Witch and the Wardrobe (Chronicles of Narnia, #1)": {
+    "genres": [
+      "Fantasy",
+      "YA",
+      "Science fiction",
+      "Fiction",
+      "Mythology",
+      "Adventure",
+      "Short stories",
+      "History"
+    ]
+  },
+  "Romeo and Juliet": {
+    "genres": [
+      "Drama",
+      "Fiction",
+      "Graphic novels",
+      "History",
+      "YA",
+      "Science"
+    ]
+  },
   "Ender’s Game (Ender's Saga, #1)": {
     "genres": [
       "War",
       "Science fiction",
       "Fiction"
+    ]
+  },
+  "The Left Hand of Darkness": {
+    "genres": [
+      "Science fiction",
+      "Fiction",
+      "Fantasy"
+    ]
+  },
+  "American Pastoral (The American Trilogy, #1)": {
+    "genres": [
+      "Religion",
+      "History",
+      "Historical fiction",
+      "Literary fiction",
+      "Thriller",
+      "Fiction",
+      "Contemporary fiction"
+    ]
+  },
+  "The Return of the King (The Lord of the Rings, #3)": {
+    "genres": [
+      "Fiction",
+      "Fantasy",
+      "YA",
+      "Adventure"
     ]
   },
   "The Giver (Giver, #1)": {
@@ -953,10 +1336,26 @@
       "Science"
     ]
   },
+  "Infinite Jest": {
+    "genres": [
+      "Fiction",
+      "Coming of age"
+    ]
+  },
   "No Country for Old Men": {
     "genres": [
       "Fiction",
       "Thriller"
+    ]
+  },
+  "Othello": {
+    "genres": [
+      "Drama",
+      "Religion",
+      "Fiction",
+      "History",
+      "Graphic novels",
+      "YA"
     ]
   },
   "Foucault’s Pendulum": {
@@ -1023,6 +1422,16 @@
       "Fantasy"
     ]
   },
+  "The Silver Chair (Chronicles of Narnia, #4)": {
+    "genres": [
+      "Fiction",
+      "YA",
+      "Science fiction",
+      "Fantasy",
+      "Adventure",
+      "Mythology"
+    ]
+  },
   "The Way of Kings (The Stormlight Archive, #1)": {
     "genres": [
       "Fantasy",
@@ -1061,6 +1470,17 @@
       "Mythology",
       "Adventure",
       "History"
+    ]
+  },
+  "Ulysses": {
+    "genres": [
+      "Fiction",
+      "Historical fiction",
+      "Religion",
+      "Contemporary fiction",
+      "Art",
+      "History",
+      "Psychology"
     ]
   },
   "Macbeth: Moment by Moment": {
@@ -1143,6 +1563,14 @@
       "Politics"
     ]
   },
+  "The Two Towers (The Lord of the Rings, #2)": {
+    "genres": [
+      "Fiction",
+      "Fantasy",
+      "Adventure",
+      "Mythology"
+    ]
+  },
   "Anna Karenina": {
     "genres": [
       "Fiction"
@@ -1180,6 +1608,33 @@
       "Romance",
       "Contemporary fiction",
       "Graphic novels"
+    ]
+  },
+  "The Hitchhiker's Guide to the Galaxy (Hitchhiker's Guide to the Galaxy, #1)": {
+    "genres": [
+      "Graphic novels",
+      "Humor",
+      "Science fiction",
+      "Fiction",
+      "Religion",
+      "Adventure"
+    ]
+  },
+  "One Hundred Years of Solitude": {
+    "genres": [
+      "Fiction"
+    ]
+  },
+  "Slaughterhouse-Five": {
+    "genres": [
+      "War",
+      "Literary fiction",
+      "Fiction",
+      "Drama",
+      "History",
+      "Science fiction",
+      "YA",
+      "Historical fiction"
     ]
   },
   "The Catcher in the Rye": {
@@ -1298,6 +1753,14 @@
       "Satire"
     ]
   },
+  "As I Lay Dying": {
+    "genres": [
+      "Fiction",
+      "Contemporary fiction",
+      "History",
+      "Romance"
+    ]
+  },
   "The Bell Jar": {
     "genres": [
       "Psychology",
@@ -1351,6 +1814,28 @@
       "History"
     ]
   },
+  "Pride and Prejudice": {
+    "genres": [
+      "Fiction",
+      "Romance",
+      "History",
+      "Drama",
+      "Literary fiction",
+      "Coming of age",
+      "Historical fiction",
+      "Contemporary fiction"
+    ]
+  },
+  "The Fellowship of the Ring (The Lord of the Rings, #1)": {
+    "genres": [
+      "YA",
+      "Fiction",
+      "Fantasy",
+      "Mythology",
+      "Adventure",
+      "History"
+    ]
+  },
   "Animal Farm": {
     "genres": [
       "Politics",
@@ -1385,6 +1870,12 @@
       "Fantasy"
     ]
   },
+  "Death's End (The Three-Body Problem, #3)": {
+    "genres": [
+      "Fiction",
+      "Science fiction"
+    ]
+  },
   "Annihilation (Southern Reach, #1)": {
     "genres": [
       "Fiction",
@@ -1395,6 +1886,12 @@
       "Adventure",
       "Dystopian",
       "Horror"
+    ]
+  },
+  "The Dark Forest (The Three-Body Problem, #2)": {
+    "genres": [
+      "Fiction",
+      "Science fiction"
     ]
   }
 }
