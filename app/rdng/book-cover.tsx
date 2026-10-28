@@ -23,6 +23,8 @@ export default function BookCover({
   )
 
   return (
+    // a plain <img>: next/image has no onError fallback for a remote 404
+    // eslint-disable-next-line @next/next/no-img-element
     <img
       src={src}
       alt={`Cover of ${title}`}

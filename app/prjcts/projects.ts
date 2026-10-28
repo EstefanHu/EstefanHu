@@ -8,11 +8,7 @@
  * parsing. Featured projects sort ahead of the rest, then newest year first.
  */
 
-export type ProjectBlock =
-  | { type: 'paragraph'; text: string }
-  | { type: 'heading'; text: string }
-  | { type: 'quote'; text: string; attribution?: string }
-  | { type: 'list'; items: string[] }
+import type { Block } from '../article'
 
 export type ProjectLink = {
   /** What the button says, e.g. "Source" or "Live site". */
@@ -29,7 +25,11 @@ export type Project = {
    * summary down a line.
    */
   excerpt: string
-  /** The opening paragraph — prose only, never a heading or a list. */
+  /**
+   * The opening paragraph — prose only, never a heading or a list. Also the
+   * card's second line; leave it empty and the line stays blank, so the
+   * footers still align.
+   */
   summary: string
   year: number
   /** Where the project stands: "Live", "In progress", "Archived". */
@@ -42,7 +42,7 @@ export type Project = {
   /** Featured projects lead the list and get an accent marker on the card. */
   featured?: boolean
   links: ProjectLink[]
-  body: ProjectBlock[]
+  body: Block[]
 }
 
 export const projects: Project[] = [
@@ -58,8 +58,8 @@ export const projects: Project[] = [
     stack: ['TypeScript', 'Node', 'Next.js', 'Electrum.js'],
     featured: true,
     links: [
-      { label: 'Source', href: 'https://github.com/estefanhu/helios'},
-      {label: 'Write-up', href: '/blg/helios-journal'},
+      { label: 'Source', href: 'https://github.com/estefanhu/helios' },
+      { label: 'Write-up', href: '/blg/helios-journal' },
     ],
     body: [],
   },
@@ -165,14 +165,4 @@ export const sortedProjects = [...projects].sort(
 
 export function getProject(slug: string): Project | undefined {
   return sortedProjects.find((project) => project.slug === slug)
-}
-
-/**
- * The project's opening paragraph — prose only, never a heading or a list.
- * Shown on the card to fill the second line, so a project that opens on a
- * heading or a list still gets a preview from its first paragraph; an empty
- * string renders as a blank line and the footers stay aligned.
- */
-export function preview(project: Project): string {
-  return project.summary
 }

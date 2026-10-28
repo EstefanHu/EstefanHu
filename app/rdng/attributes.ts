@@ -1,7 +1,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { Book } from './books'
-import { Bucket } from './stats'
+import { countBuckets } from './stats'
 
 /**
  * StoryGraph tracks moods and genres per book; the Goodreads export does not.
@@ -51,35 +51,19 @@ function tally(
   key: 'moods' | 'genres',
   excluded: Set<string> = new Set(),
 ) {
-  const counts = new Map<string, number>()
-  let matched = 0
+  // a book can carry the same tag twice; count each tag once per book
+  const perBook = books
+    .map((book) => new Set(
+      (attributes[book.title]?.[key] ?? [])
+        .map((entry) => entry.trim())
+        .filter((entry) => entry && !excluded.has(entry)),
+    ))
+    .filter((tags) => tags.size > 0)
 
-  for (const book of books) {
-    const values = attributes[book.title]?.[key]
-    if (!values?.length) continue
-
-    const usable = values.map((entry) => entry.trim()).filter((entry) => entry && !excluded.has(entry))
-
-    if (!usable.length) continue
-
-    matched += 1
-
-    // a book can carry the same tag twice; count each tag once per book
-    for (const value of new Set(usable)) {
-      counts.set(value, (counts.get(value) ?? 0) + 1)
-    }
-  }
-
-  const buckets: Bucket[] = [...counts.entries()]
-    .map(([label, count]) => ({ label, count }))
-    .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label))
-
-  return { buckets, matched }
+  return { buckets: countBuckets(perBook.flatMap((tags) => [...tags])), matched: perBook.length }
 }
 
-export function buildAttributes(books: Book[]) {
-  const attributes = loadAttributes()
-
+export function buildAttributes(books: Book[], attributes: Record<string, BookAttributes>) {
   const moods = tally(books, attributes, 'moods')
   const genres = tally(books, attributes, 'genres', EXCLUDED_GENRES)
 

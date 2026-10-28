@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
-import { Book, currentlyReading, formatDate, readBooks } from './books'
-import { buildRecentlyRead } from './recently-read'
+import { formatDate, formatNumber } from '../format'
+import { Book, readBooks, recentlyRead } from './books'
 import { loadAttributes, BookAttributes } from './attributes'
 import BookCover from './book-cover'
 import Dashboard from './dashboard'
@@ -57,16 +57,7 @@ function truncate(value: string, max: number): string {
   return `${value.slice(0, max - 1).trimEnd()}…`
 }
 
-function BookCard({
-  book,
-  attributes,
-  footer,
-}: {
-  book: Book
-  attributes?: BookAttributes
-  footer?: React.ReactNode
-}) {
-  const added = formatDate(book.addedAt)
+function BookCard({ book, attributes }: { book: Book; attributes?: BookAttributes }) {
   // Books carry a dozen Open Library genres; a handful keeps the row tidy.
   const tags = [
     ...new Set([...(attributes?.genres ?? []), ...(attributes?.moods ?? [])]),
@@ -103,7 +94,8 @@ function BookCard({
         )}
 
         <footer className={styles.bookFooter}>
-          {footer ?? (added && <Meta label="Added" value={added} />)}
+          {book.finishedAt && <Meta label="Finished" value={formatDate(book.finishedAt)} />}
+          {book.pages && <Meta value={`${book.pages} pages`} />}
         </footer>
       </div>
     </article>
@@ -111,7 +103,6 @@ function BookCard({
 }
 
 function page() {
-  const recentlyRead = buildRecentlyRead(readBooks)
   const attributes = loadAttributes()
 
   return (
@@ -119,27 +110,11 @@ function page() {
       <div className={styles.header}>
         <h1 className={styles.title}>My <span>Reading</span></h1>
         <p className={styles.subtitle}>
-          {readBooks.length.toLocaleString('en-US')} books &mdash; tracked from my Goodreads export
+          {formatNumber(readBooks.length)} books &mdash; tracked from my Goodreads export
         </p>
       </div>
 
-      {currentlyReading.length > 0 && (
-        <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>Currently Reading</h2>
-
-          <div className={styles.bookList}>
-            {currentlyReading.map((book) => (
-              <BookCard
-                key={book.title}
-                book={book}
-                attributes={attributes[book.title]}
-              />
-            ))}
-          </div>
-        </section>
-      )}
-
-      <Dashboard />
+      <Dashboard books={readBooks} attributes={attributes} />
 
       {recentlyRead.length > 0 && (
         <section className={styles.section}>
@@ -147,20 +122,7 @@ function page() {
 
           <div className={styles.bookList}>
             {recentlyRead.map((book) => (
-              <BookCard
-                key={book.title}
-                book={book}
-                attributes={attributes[book.title]}
-                footer={
-                  <>
-                    <Meta
-                      label="Finished"
-                      value={formatDate(book.finishedAt) ?? ''}
-                    />
-                    {book.pages && <Meta value={`${book.pages} pages`} />}
-                  </>
-                }
-              />
+              <BookCard key={book.title} book={book} attributes={attributes[book.title]} />
             ))}
           </div>
         </section>

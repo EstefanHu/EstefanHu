@@ -19,7 +19,7 @@ function Page() {
       return
     }
 
-    // no auth backend wired up yet &mdash; redirect for now
+    // no auth backend wired up yet, so redirect for now
     router.push('/')
   }
 

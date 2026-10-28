@@ -120,7 +120,7 @@
         line-height: 25px;
       }
 
-      &.experience, &.misc {
+      &.experience {
         display: flex;
         flex-direction: column;
 

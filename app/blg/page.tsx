@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { formatDate, preview, readingTime, sortedPosts } from './posts'
+import { formatDate } from '../format'
+import { preview, readingTime, sortedPosts } from './posts'
 import styles from './page.module.css'
 
 export const metadata: Metadata = {

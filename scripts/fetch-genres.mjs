@@ -15,16 +15,10 @@
 
 import fs from 'node:fs'
 import path from 'node:path'
-import { fileURLToPath } from 'node:url'
+import { CSV_PATH, REQUEST_DELAY_MS, ROOT, SKIP_SHELVES, csvIsbn, get, parseCsv, sleep } from './lib.mjs'
 
-const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
-const CSV_PATH = path.join(ROOT, 'data', 'goodreads.csv')
 const CACHE_PATH = path.join(ROOT, 'data', 'openlibrary-subjects.json')
 const OUT_PATH = path.join(ROOT, 'data', 'rdng-attributes.json')
-
-/** Open Library asks for a polite rate; one request per second is their guidance. */
-const REQUEST_DELAY_MS = 1100
-const MAX_ATTEMPTS = 3
 
 /**
  * Keyword -> canonical genre. Longest keywords win, so list the specific
@@ -133,12 +127,6 @@ const GENRES = {
 /** Sorted longest-first so "historical fiction" beats plain "fiction". */
 const GENRE_KEYS = Object.keys(GENRES).sort((a, b) => b.length - a.length)
 
-/** Goodreads quotes ISBNs as `="9780307271037"`. */
-function cleanIsbn(value) {
-  const digits = String(value ?? '').replace(/[^0-9Xx]/g, '')
-  return digits.length === 13 ? digits : null
-}
-
 function toGenres(subjects) {
   const found = new Set()
 
@@ -159,91 +147,13 @@ function toGenres(subjects) {
   return [...found]
 }
 
-function parseCsv(input) {
-  const rows = []
-  let row = []
-  let field = ''
-  let inQuotes = false
-
-  for (let i = 0; i < input.length; i++) {
-    const char = input[i]
-
-    if (inQuotes) {
-      if (char === '"') {
-        if (input[i + 1] === '"') {
-          field += '"'
-          i++
-        } else {
-          inQuotes = false
-        }
-      } else {
-        field += char
-      }
-      continue
-    }
-
-    if (char === '"') inQuotes = true
-    else if (char === ',') {
-      row.push(field)
-      field = ''
-    } else if (char === '\n') {
-      row.push(field)
-      rows.push(row)
-      row = []
-      field = ''
-    } else if (char !== '\r') field += char
-  }
-
-  if (field || row.length) {
-    row.push(field)
-    rows.push(row)
-  }
-
-  const [header, ...body] = rows
-  if (!header) return []
-
-  return body
-    .filter((cells) => cells.length > 1)
-    .map((cells) => header.reduce((record, key, index) => {
-      record[key] = cells[index] ?? ''
-      return record
-    }, {}))
-}
-
-const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
-
 async function fetchSubjects(isbn) {
-  const url = `https://openlibrary.org/search.json?isbn=${isbn}&fields=title,subject&limit=1`
-
-  for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
-    try {
-      const response = await fetch(url, {
-        headers: { 'User-Agent': 'estefanhu-portfolio/1.0 (reading dashboard)' },
-      })
-
-      if (response.status === 429) {
-        await sleep(REQUEST_DELAY_MS * 4 * attempt)
-        continue
-      }
-
-      if (!response.ok) throw new Error(`HTTP ${response.status}`)
-
-      const data = await response.json()
-      return data.docs?.[0]?.subject ?? []
-    } catch (error) {
-      if (attempt === MAX_ATTEMPTS) {
-        console.warn(`  ! ${isbn} failed: ${error.message}`)
-        return []
-      }
-      await sleep(REQUEST_DELAY_MS * attempt)
-    }
-  }
-
-  return []
+  const data = JSON.parse(await get(`https://openlibrary.org/search.json?isbn=${isbn}&fields=title,subject&limit=1`))
+  return data.docs?.[0]?.subject ?? []
 }
 
-const books = parseCsv(fs.readFileSync(CSV_PATH, 'utf8')).filter(
-  (row) => row['Exclusive Shelf']?.trim() !== 'wish-list',
+const books = parseCsv(fs.readFileSync(CSV_PATH, 'utf8')).records.filter(
+  (row) => !SKIP_SHELVES.has(row['Exclusive Shelf']?.trim()),
 )
 
 const cache = fs.existsSync(CACHE_PATH)
@@ -252,8 +162,8 @@ const cache = fs.existsSync(CACHE_PATH)
 
 const isbnToTitle = new Map()
 for (const book of books) {
-  const isbn = cleanIsbn(book['ISBN13'])
-  if (isbn) isbnToTitle.set(isbn, book['Title']?.trim() ?? '')
+  const isbn = csvIsbn(book['ISBN13'])
+  if (isbn.length === 13) isbnToTitle.set(isbn, book['Title']?.trim() ?? '')
 }
 
 const isbns = [...isbnToTitle.keys()]
@@ -262,10 +172,15 @@ const pending = isbns.filter((isbn) => !(isbn in cache))
 console.log(`${books.length} books, ${isbns.length} with ISBN13, ${pending.length} to look up`)
 
 for (const [index, isbn] of pending.entries()) {
-  cache[isbn] = await fetchSubjects(isbn)
-  fs.writeFileSync(CACHE_PATH, JSON.stringify(cache, null, 0))
+  try {
+    cache[isbn] = await fetchSubjects(isbn)
+    fs.writeFileSync(CACHE_PATH, JSON.stringify(cache, null, 0))
+  } catch (error) {
+    // left out of the cache, so the next run tries again
+    console.warn(`\n  ! ${isbn}: ${error.message}`)
+  }
 
-  const found = toGenres(cache[isbn]).length
+  const found = toGenres(cache[isbn] ?? []).length
   process.stdout.write(
     `\r${index + 1}/${pending.length} looked up (${found} genres on this one)   `,
   )
@@ -304,7 +219,7 @@ fs.writeFileSync(OUT_PATH, `${JSON.stringify(attributes, null, 2)}\n`)
 
 const counts = new Map()
 for (const entry of Object.values(attributes)) {
-  for (const genre of entry.genres) counts.set(genre, (counts.get(genre) ?? 0) + 1)
+  for (const genre of entry.genres ?? []) counts.set(genre, (counts.get(genre) ?? 0) + 1)
 }
 
 console.log(`\n${matched} of ${isbns.length} books matched a genre`)

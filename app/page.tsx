@@ -1,4 +1,5 @@
 import styles from "./page.module.css";
+import { GITHUB_URL, LINKEDIN_URL } from "./links";
 
 export default function Home() {
   return (
@@ -10,7 +11,7 @@ export default function Home() {
           <a
             target="_blank"
             rel="noopener noreferrer"
-            href="https://github.com/estefanhu/"
+            href={GITHUB_URL}
           >
             github.com/estefanhu
           </a>
@@ -18,7 +19,7 @@ export default function Home() {
           <a
             target="_blank"
             rel="noopener noreferrer"
-            href="https://www.linkedin.com/in/estefanhu/"
+            href={LINKEDIN_URL}
           >
             linkedin.com/in/estefanhu
           </a>

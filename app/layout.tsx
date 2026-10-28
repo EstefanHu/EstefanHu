@@ -1,22 +1,18 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import styles from "./layout.module.css";
 
 import Nav from "./nav";
 import Logo from "./logo";
 import { GithubIcon, GoodreadsIcon, LinkedinIcon } from "./social-icons";
+import { GITHUB_URL, GOODREADS_URL, LINKEDIN_URL } from "./links";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const SOCIAL_LINKS = [
+  { label: "LinkedIn", href: LINKEDIN_URL, Icon: LinkedinIcon },
+  { label: "GitHub", href: GITHUB_URL, Icon: GithubIcon },
+  { label: "Goodreads", href: GOODREADS_URL, Icon: GoodreadsIcon },
+];
 
 export const metadata: Metadata = {
   title: {
@@ -34,10 +30,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-         <div className={styles.header}>
+      <body className="antialiased">
+        <div className={styles.header}>
           <div className={styles.headerWrapper}>
             <Logo />
 
@@ -79,32 +73,17 @@ export default function RootLayout({
 
             <div className={styles.legal}>
               <span>
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="LinkedIn"
-                  href="https://www.linkedin.com/in/estefanhu/"
-                >
-                  <LinkedinIcon />
-                </a>
-
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="GitHub"
-                  href="https://github.com/estefanhu/"
-                >
-                  <GithubIcon />
-                </a>
-
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Goodreads"
-                  href="https://www.goodreads.com/user/show/201896396-estefan-hu"
-                >
-                  <GoodreadsIcon />
-                </a>
+                {SOCIAL_LINKS.map(({ label, href, Icon }) => (
+                  <a
+                    key={label}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    href={href}
+                  >
+                    <Icon />
+                  </a>
+                ))}
               </span>
               <p>&copy; 2026 Justin Estefan Hu - all rights reserved</p>
             </div>

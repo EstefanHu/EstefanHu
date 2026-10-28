@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { preview, sortedProjects } from './projects'
+import { sortedProjects } from './projects'
 import styles from './page.module.css'
 
 export const metadata: Metadata = {
@@ -30,7 +30,7 @@ function page() {
             <div className={styles.projectHeader}>
               <h2 className={styles.projectTitle}>{project.title}</h2>
               <p className={styles.projectExcerpt}>{project.excerpt}</p>
-              <p className={styles.projectPreview}>{preview(project)}</p>
+              <p className={styles.projectPreview}>{project.summary}</p>
             </div>
 
             <footer className={styles.projectFooter}>

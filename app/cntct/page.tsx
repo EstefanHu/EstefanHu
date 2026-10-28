@@ -1,13 +1,10 @@
+import { EMAIL, GITHUB_URL, LINKEDIN_URL } from '../links'
 import styles from './page.module.css'
-import Link from 'next/link'
-
-const EMAIL = 'estefanhu074@gmail.com'
 
 const CARDS = [
   {
     label: 'Email',
     href: `mailto:${EMAIL}`,
-    internal: true,
     value: (
       <>
         {EMAIL}
@@ -18,12 +15,12 @@ const CARDS = [
   },
   {
     label: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/estefanhu/',
+    href: LINKEDIN_URL,
     value: 'For the public version of my work experience.',
   },
   {
     label: 'GitHub',
-    href: 'https://github.com/estefanhu/',
+    href: GITHUB_URL,
     value: 'If you would like to see some of my work.',
   },
 ]
@@ -40,20 +37,16 @@ function page() {
       <ul className={styles.linkList}>
         {CARDS.map((card) => (
           <li key={card.label}>
-            {card.internal ? (
-              <Link className={styles.link} href={card.href}>
-                {card.label}
-              </Link>
-            ) : (
-              <a
-                className={styles.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                href={card.href}
-              >
-                {card.label}
-              </a>
-            )}
+            {/* mailto opens the mail client; profiles open in a new tab */}
+            <a
+              className={styles.link}
+              href={card.href}
+              {...(card.href.startsWith('mailto:')
+                ? {}
+                : { target: '_blank', rel: 'noopener noreferrer' })}
+            >
+              {card.label}
+            </a>
           </li>
         ))}
       </ul>
@@ -69,9 +62,7 @@ function page() {
               <span className={styles.cardLabel}>{card.label}</span>
             </div>
 
-            {card.value && (
-              <span className={styles.cardValue}>{card.value}</span>
-            )}
+            <span className={styles.cardValue}>{card.value}</span>
           </div>
         ))}
       </div>

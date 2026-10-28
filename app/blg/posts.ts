@@ -8,11 +8,7 @@
  * is the same as chronologically, so no Date parsing is needed to sort.
  */
 
-export type PostBlock =
-  | { type: 'paragraph'; text: string }
-  | { type: 'heading'; text: string }
-  | { type: 'quote'; text: string; attribution?: string }
-  | { type: 'list'; items: string[] }
+import type { Block } from '../article'
 
 export type Post = {
   slug: string
@@ -25,7 +21,7 @@ export type Post = {
   excerpt: string
   date: string
   tags: string[]
-  body: PostBlock[]
+  body: Block[]
 }
 
 export const posts: Post[] = [
@@ -212,18 +208,6 @@ export const sortedPosts = [...posts].sort(
 
 export function getPost(slug: string): Post | undefined {
   return sortedPosts.find((post) => post.slug === slug)
-}
-
-const DATE_FORMAT = new Intl.DateTimeFormat('en-US', {
-  year: 'numeric',
-  month: 'short',
-  day: 'numeric',
-  timeZone: 'UTC',
-})
-
-/** "Sep 18, 2026" — rendered in UTC so a build never shifts the day. */
-export function formatDate(date: string): string {
-  return DATE_FORMAT.format(new Date(`${date}T00:00:00Z`))
 }
 
 const WORDS_PER_MINUTE = 225

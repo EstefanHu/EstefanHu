@@ -78,11 +78,6 @@ function parseCsv(input: string): Record<string, string>[] {
     )
 }
 
-const MONTHS = [
-  'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-  'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',
-]
-
 /** Goodreads writes `2026/09/29` or a partial `2026/09`. */
 function toIso(value: string): string | null {
   const match = /^(\d{4})(?:\/(\d{1,2}))?(?:\/(\d{1,2}))?$/.exec(value.trim())
@@ -91,31 +86,6 @@ function toIso(value: string): string | null {
   const [, year, month = '01', day = '01'] = match
   const normalized = `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`
   return Number.isNaN(Date.parse(normalized)) ? null : normalized
-}
-
-/** `2026-09-29` -> `Sep 29, 2026`; falls back to a year-month or year only. */
-function toParts(value: string | null): { month: string; day: number | null; year: string } | null {
-  if (!value) return null
-
-  const match = /^(\d{4})-(\d{2})-(\d{2})/.exec(value)
-  if (!match) return { month: '', day: null, year: value.slice(0, 4) }
-
-  const [, year, month, day] = match
-
-  return {
-    month: MONTHS[Number(month) - 1] ?? '',
-    day: Number(day),
-    year: year ?? '',
-  }
-}
-
-export function formatDate(value: string | null): string | null {
-  const parts = toParts(value)
-  if (!parts) return null
-
-  return parts.day
-    ? `${parts.month} ${parts.day}, ${parts.year}`
-    : `${parts.month} ${parts.year}`.trim()
 }
 
 function toNumber(value: string): number | null {
@@ -159,23 +129,6 @@ function sortNewestFirst(a: Book, b: Book): number {
   return a.title.localeCompare(b.title)
 }
 
-function loadLibrary(): Record<string, Book[]> {
-  const csv = fs.readFileSync(CSV_PATH, 'utf8')
-  const library: Record<string, Book[]> = {}
-
-  for (const row of parseCsv(csv)) {
-    const shelf = row['Exclusive Shelf']?.trim()
-    if (!shelf) continue
-
-    library[shelf] ??= []
-    library[shelf].push(toBook(row))
-  }
-
-  return library
-}
-
-const library = loadLibrary()
-
 /**
  * Goodreads only marks a book `read` once you finish it, so books you have
  * already read but never moved off `to-read` would be missed by reading the
@@ -184,16 +137,20 @@ const library = loadLibrary()
  */
 const EXCLUDED_SHELVES = new Set(['wish-list'])
 
-const readShelves = Object.entries(library)
-  .filter(([shelf]) => !EXCLUDED_SHELVES.has(shelf))
-  .flatMap(([, books]) => books)
+/** Newest first, by finish date where there is one, else by date added. */
+export const readBooks: Book[] = parseCsv(fs.readFileSync(CSV_PATH, 'utf8'))
+  .filter((row) => {
+    const shelf = row['Exclusive Shelf']?.trim()
+    return shelf && !EXCLUDED_SHELVES.has(shelf)
+  })
+  .map(toBook)
   .sort(sortNewestFirst)
 
-export const readBooks: Book[] = readShelves
+const RECENT_COUNT = 10
 
 /**
- * Empty: everything not on an excluded shelf counts as read, including the
- * `currently-reading` shelf. The section reappears if you ever exclude a shelf
- * that should still be shown as in progress.
+ * The latest finishes. `readBooks` is already newest-first, and books with a
+ * finish date sort among themselves by it, so this is just the head of the
+ * list. Books with no finish date are left out.
  */
-export const currentlyReading: Book[] = []
+export const recentlyRead: Book[] = readBooks.filter((book) => book.finishedAt).slice(0, RECENT_COUNT)

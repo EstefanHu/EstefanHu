@@ -1,3 +1,4 @@
+import type { Bucket } from './stats'
 import styles from './dashboard.module.css'
 
 export function Panel({
@@ -25,7 +26,7 @@ export function BarList({
   buckets,
   emptyLabel = 'No data yet',
 }: {
-  buckets: { label: string; count: number }[]
+  buckets: Bucket[]
   emptyLabel?: string
 }) {
   const visible = buckets.filter((bucket) => bucket.count > 0)
