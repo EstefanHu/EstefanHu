@@ -116,7 +116,7 @@ export function buildStats(allBooks: Book[]): LibraryStats {
   const longest = [...books].filter((book) => book.pages).sort((a, b) => b.pages! - a.pages!)[0]
 
   const currentYear = String(new Date().getFullYear())
-  const readThisYear = books.filter((book) => book.finishedAt?.startsWith(currentYear))
+  const readThisYear = books.filter((book) => book.shelves.includes(currentYear))
   const pagesThisYear = readThisYear.reduce((sum, book) => sum + pagesOf(book), 0)
 
   const lengthCounts = groupCount(books, (book) => (book.pages ? lengthBucket(book.pages) : ''))

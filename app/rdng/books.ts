@@ -12,6 +12,8 @@ export type Book = {
   /** ISO `YYYY-MM-DD`, or null when Goodreads has no date for it */
   finishedAt: string | null
   addedAt: string | null
+  /** non-exclusive Goodreads shelves (tags), e.g. `2026` */
+  shelves: string[]
 }
 
 const CSV_PATH = path.join(process.cwd(), 'data', 'goodreads.csv')
@@ -145,6 +147,7 @@ function toBook(row: Record<string, string>): Book {
     publishedYear: toPublishedYear(row),
     finishedAt: toIso(row['Date Read'] ?? ''),
     addedAt: toIso(row['Date Added'] ?? ''),
+    shelves: (row['Bookshelves'] ?? '').split(',').map((shelf) => shelf.trim()).filter(Boolean),
   }
 }
 

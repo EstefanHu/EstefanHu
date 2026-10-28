@@ -10,6 +10,8 @@
  *   node scripts/sync-books.mjs            sync, enrich, refresh genres
  *   node scripts/sync-books.mjs --dry-run  print what would change, write nothing
  *   node scripts/sync-books.mjs --build    also run `next build` afterwards
+ *   node scripts/sync-books.mjs --from ~/Downloads/goodreads_library_export.csv
+ *                                          use a manual export instead of the feeds
  *
  * Writes:
  *   data/goodreads.csv              the library, same shape as a Goodreads export
@@ -43,9 +45,16 @@ const REQUEST_DELAY_MS = 1100
 const MAX_ATTEMPTS = 3
 const USER_AGENT = 'estefanhu-portfolio/1.0 (reading dashboard)'
 
-const args = new Set(process.argv.slice(2))
+const argv = process.argv.slice(2)
+const args = new Set(argv)
 const DRY_RUN = args.has('--dry-run')
 const BUILD = args.has('--build')
+const FROM = args.has('--from') ? argv[argv.indexOf('--from') + 1] : null
+
+if (args.has('--from') && !FROM) {
+  console.error('--from needs the path to a Goodreads export')
+  process.exit(1)
+}
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 
@@ -349,51 +358,89 @@ async function lookUp(record) {
 const { header, records } = parseCsv(fs.readFileSync(CSV_PATH, 'utf8'))
 const byId = new Map(records.map((record) => [record['Book Id'], record]))
 
-console.log(`fetching Goodreads shelves for user ${GOODREADS_USER_ID}`)
+/**
+ * An export already has every column, so it replaces the library outright.
+ * Exports leave out ISBNs Goodreads lacks, so anything filled in earlier
+ * (usually from Open Library) is carried over rather than blanked.
+ */
+function fromExport(file) {
+  const exported = parseCsv(fs.readFileSync(file, 'utf8')).records
+  const exportedIds = new Set(exported.map((record) => record['Book Id']))
+  const added = []
+  const updated = []
 
-const items = []
-for (const shelf of SHELVES) {
-  const found = await fetchShelf(shelf)
-  console.log(`  ${shelf.padEnd(20)} ${found.length}`)
-  items.push(...found)
-}
+  for (const record of exported) {
+    const existing = byId.get(record['Book Id'])
+    if (!existing) {
+      added.push(record)
+      continue
+    }
 
-const seen = new Set()
-const added = []
-const updated = []
+    if (!csvIsbn(record['ISBN13']) && csvIsbn(existing['ISBN13'])) record['ISBN13'] = existing['ISBN13']
+    if (!record['Number of Pages'] && existing['Number of Pages']) record['Number of Pages'] = existing['Number of Pages']
 
-for (const item of items) {
-  if (!item.id || seen.has(item.id)) continue
-  seen.add(item.id)
-
-  const existing = byId.get(item.id)
-
-  if (!existing) {
-    const record = toRecord(item)
-    added.push(record)
-    byId.set(item.id, record)
-    continue
+    const changes = header
+      .filter((column) => (record[column] ?? '') !== (existing[column] ?? ''))
+      .map((column) => `${column}: ${existing[column] || '∅'} -> ${record[column] || '∅'}`)
+    if (changes.length) updated.push({ record, changes })
   }
 
-  const changes = mergeInto(existing, item)
-  if (changes.length) updated.push({ record: existing, changes })
+  const removed = records.filter((record) => !exportedIds.has(record['Book Id']))
+  return { library: exported, added, updated, removed }
 }
 
-// Only drop rows from shelves we actually fetched; anything else is left alone.
-const fetched = new Set(SHELVES)
-const removed = records.filter(
-  (record) => fetched.has(record['Exclusive Shelf']) && !seen.has(record['Book Id']),
-)
-const removedIds = new Set(removed.map((record) => record['Book Id']))
-
-// New books go on top, newest first, as in an export.
-added.sort((a, b) => b['Date Added'].localeCompare(a['Date Added']))
-const library = [...added, ...records.filter((record) => !removedIds.has(record['Book Id']))]
+const synced = FROM ? fromExport(path.resolve(FROM)) : await fromFeeds()
+const { library, added, updated, removed } = synced
 
 console.log(`\n${added.length} added, ${updated.length} updated, ${removed.length} removed`)
 for (const record of added) console.log(`  + ${record['Title']} [${record['Exclusive Shelf']}]`)
 for (const { record, changes } of updated) console.log(`  ~ ${record['Title']}: ${changes.join('; ')}`)
 for (const record of removed) console.log(`  - ${record['Title']} [${record['Exclusive Shelf']}]`)
+
+async function fromFeeds() {
+  console.log(`fetching Goodreads shelves for user ${GOODREADS_USER_ID}`)
+
+  const items = []
+  for (const shelf of SHELVES) {
+    const found = await fetchShelf(shelf)
+    console.log(`  ${shelf.padEnd(20)} ${found.length}`)
+    items.push(...found)
+  }
+
+  const seen = new Set()
+  const added = []
+  const updated = []
+
+  for (const item of items) {
+    if (!item.id || seen.has(item.id)) continue
+    seen.add(item.id)
+
+    const existing = byId.get(item.id)
+
+    if (!existing) {
+      const record = toRecord(item)
+      added.push(record)
+      byId.set(item.id, record)
+      continue
+    }
+
+    const changes = mergeInto(existing, item)
+    if (changes.length) updated.push({ record: existing, changes })
+  }
+
+  // Only drop rows from shelves we actually fetched; anything else is left alone.
+  const fetched = new Set(SHELVES)
+  const removed = records.filter(
+    (record) => fetched.has(record['Exclusive Shelf']) && !seen.has(record['Book Id']),
+  )
+  const removedIds = new Set(removed.map((record) => record['Book Id']))
+
+  // New books go on top, newest first, as in an export.
+  added.sort((a, b) => b['Date Added'].localeCompare(a['Date Added']))
+  const library = [...added, ...records.filter((record) => !removedIds.has(record['Book Id']))]
+
+  return { library, added, updated, removed }
+}
 
 const cache = fs.existsSync(ISBN_CACHE_PATH)
   ? JSON.parse(fs.readFileSync(ISBN_CACHE_PATH, 'utf8'))

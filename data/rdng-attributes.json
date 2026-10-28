@@ -13,6 +13,130 @@
       "Graphic novels"
     ]
   },
+  "Animal Dreams": {
+    "genres": [
+      "Literary fiction",
+      "Politics",
+      "Fiction",
+      "Romance"
+    ]
+  },
+  "Steppenwolf": {
+    "genres": [
+      "Fiction",
+      "Western",
+      "History",
+      "Short stories"
+    ]
+  },
+  "The Things They Carried": {
+    "genres": [
+      "Fiction",
+      "Short stories",
+      "War"
+    ]
+  },
+  "Do Androids Dream of Electric Sheep?": {
+    "genres": [
+      "Fiction",
+      "Science fiction",
+      "Adventure"
+    ]
+  },
+  "The Vegetarian": {
+    "genres": [
+      "Fiction"
+    ]
+  },
+  "Stoner": {
+    "genres": [
+      "Contemporary fiction",
+      "Fiction"
+    ]
+  },
+  "Braiding Sweetgrass: Indigenous Wisdom, Scientific Knowledge, and the Teachings of Plants": {
+    "genres": [
+      "Philosophy",
+      "Nature",
+      "Biography",
+      "Science",
+      "Religion"
+    ]
+  },
+  "The Origins and History of Consciousness": {
+    "genres": [
+      "Psychology",
+      "Science"
+    ]
+  },
+  "The Hitchhiker's Guide to the Galaxy (The Hitchhiker's Guide to the Galaxy, #1)": {
+    "genres": [
+      "Graphic novels",
+      "Humor",
+      "Science fiction",
+      "Fiction",
+      "Religion",
+      "Adventure"
+    ]
+  },
+  "Pachinko": {
+    "genres": [
+      "Fiction",
+      "History"
+    ]
+  },
+  "First Person Singular: Stories": {
+    "genres": [
+      "Fiction",
+      "Short stories",
+      "YA"
+    ]
+  },
+  "There There": {
+    "genres": [
+      "Fiction",
+      "Politics"
+    ]
+  },
+  "Bowling Alone: The Collapse and Revival of American Community": {
+    "genres": [
+      "History"
+    ]
+  },
+  "The Tenant": {
+    "genres": [
+      "Thriller",
+      "Mystery",
+      "Fiction",
+      "Horror"
+    ]
+  },
+  "Giovanni’s Room": {
+    "genres": [
+      "Psychology",
+      "Fiction",
+      "Romance"
+    ]
+  },
+  "Europe Central": {
+    "genres": [
+      "Fiction",
+      "Historical fiction"
+    ]
+  },
+  "Fuccboi": {
+    "genres": [
+      "Fiction",
+      "Coming of age"
+    ]
+  },
+  "Why Nations Fail: The Origins of Power, Prosperity, and Poverty": {
+    "genres": [
+      "Economics",
+      "Politics",
+      "History"
+    ]
+  },
   "The Buried Giant": {
     "genres": [
       "Fiction",
@@ -626,7 +750,7 @@
       "Mythology"
     ]
   },
-  "Dune Messiah (Dune #2)": {
+  "Dune Messiah (Dune, #2)": {
     "genres": [
       "Fiction",
       "Science fiction"
@@ -695,11 +819,6 @@
       "Fiction",
       "Historical fiction",
       "History"
-    ]
-  },
-  "The Vegetarian": {
-    "genres": [
-      "Fiction"
     ]
   },
   "The Screwtape Letters (Screwtape, #1)": {
@@ -900,12 +1019,6 @@
       "Fiction"
     ]
   },
-  "Stoner": {
-    "genres": [
-      "Contemporary fiction",
-      "Fiction"
-    ]
-  },
   "The Picture of Dorian Gray": {
     "genres": [
       "Fiction",
@@ -957,12 +1070,6 @@
       "Science fiction"
     ]
   },
-  "The Origins and History of Consciousness": {
-    "genres": [
-      "Psychology",
-      "Science"
-    ]
-  },
   "East of Eden": {
     "genres": [
       "Historical fiction",
@@ -991,19 +1098,6 @@
       "Fiction",
       "Fantasy",
       "History"
-    ]
-  },
-  "Pachinko": {
-    "genres": [
-      "Fiction",
-      "History"
-    ]
-  },
-  "Do Androids Dream of Electric Sheep?": {
-    "genres": [
-      "Fiction",
-      "Science fiction",
-      "Adventure"
     ]
   },
   "2001: A Space Odyssey (Space Odyssey, #1)": {
@@ -1058,7 +1152,7 @@
       "Mystery"
     ]
   },
-  "Shadow & Claw": {
+  "Shadow & Claw (The Book of the New Sun, #1-2)": {
     "genres": [
       "Science fiction",
       "Fantasy",
@@ -1130,20 +1224,6 @@
       "History",
       "War",
       "Historical fiction"
-    ]
-  },
-  "There There": {
-    "genres": [
-      "Fiction",
-      "Politics"
-    ]
-  },
-  "Steppenwolf": {
-    "genres": [
-      "Fiction",
-      "Western",
-      "History",
-      "Short stories"
     ]
   },
   "Sense and Sensibility": {
@@ -1446,13 +1526,6 @@
       "Fantasy"
     ]
   },
-  "The Things They Carried": {
-    "genres": [
-      "Fiction",
-      "Short stories",
-      "War"
-    ]
-  },
   "The Horse and His Boy (Chronicles of Narnia, #5)": {
     "genres": [
       "Fantasy",
@@ -1608,16 +1681,6 @@
       "Romance",
       "Contemporary fiction",
       "Graphic novels"
-    ]
-  },
-  "The Hitchhiker's Guide to the Galaxy (Hitchhiker's Guide to the Galaxy, #1)": {
-    "genres": [
-      "Graphic novels",
-      "Humor",
-      "Science fiction",
-      "Fiction",
-      "Religion",
-      "Adventure"
     ]
   },
   "One Hundred Years of Solitude": {
