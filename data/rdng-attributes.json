@@ -13,6 +13,73 @@
       "Graphic novels"
     ]
   },
+  "Lapvona": {
+    "genres": [
+      "Religion",
+      "Fiction",
+      "Fantasy",
+      "History"
+    ]
+  },
+  "There There": {
+    "genres": [
+      "Fiction",
+      "Politics"
+    ]
+  },
+  "Interior Castle": {
+    "genres": [
+      "Religion",
+      "Biography"
+    ]
+  },
+  "Housekeeping": {
+    "genres": [
+      "Fiction"
+    ]
+  },
+  "The Windup Girl": {
+    "genres": [
+      "Fiction",
+      "Dystopian",
+      "Science fiction"
+    ]
+  },
+  "The Hero of Ages (Mistborn, #3)": {
+    "genres": [
+      "Fiction",
+      "Fantasy"
+    ]
+  },
+  "Tomorrow, and Tomorrow, and Tomorrow": {
+    "genres": [
+      "Fiction"
+    ]
+  },
+  "All the Pretty Horses (The Border Trilogy, #1)": {
+    "genres": [
+      "Fiction",
+      "Coming of age",
+      "Romance",
+      "Western",
+      "Travel"
+    ]
+  },
+  "Beloved": {
+    "genres": [
+      "History",
+      "Fiction",
+      "Historical fiction",
+      "Mystery"
+    ]
+  },
+  "Why Nations Fail: The Origins of Power, Prosperity, and Poverty": {
+    "genres": [
+      "Economics",
+      "Politics",
+      "History"
+    ]
+  },
   "Animal Dreams": {
     "genres": [
       "Literary fiction",
@@ -92,23 +159,9 @@
       "YA"
     ]
   },
-  "There There": {
-    "genres": [
-      "Fiction",
-      "Politics"
-    ]
-  },
   "Bowling Alone: The Collapse and Revival of American Community": {
     "genres": [
       "History"
-    ]
-  },
-  "The Tenant": {
-    "genres": [
-      "Thriller",
-      "Mystery",
-      "Fiction",
-      "Horror"
     ]
   },
   "Giovanni’s Room": {
@@ -128,13 +181,6 @@
     "genres": [
       "Fiction",
       "Coming of age"
-    ]
-  },
-  "Why Nations Fail: The Origins of Power, Prosperity, and Poverty": {
-    "genres": [
-      "Economics",
-      "Politics",
-      "History"
     ]
   },
   "The Buried Giant": {
@@ -763,7 +809,7 @@
       "Fantasy"
     ]
   },
-  "Heretics of Dune (Dune #5)": {
+  "Heretics of Dune (Dune, #5)": {
     "genres": [
       "Science fiction",
       "Fiction"
@@ -872,7 +918,7 @@
       "War"
     ]
   },
-  "Chapterhouse: Dune (Dune #6)": {
+  "Chapterhouse: Dune (Dune, #6)": {
     "genres": [
       "Fiction",
       "Science fiction"
@@ -1092,14 +1138,6 @@
       "Drama"
     ]
   },
-  "Lapvona": {
-    "genres": [
-      "Religion",
-      "Fiction",
-      "Fantasy",
-      "History"
-    ]
-  },
   "2001: A Space Odyssey (Space Odyssey, #1)": {
     "genres": [
       "Fiction",
@@ -1142,14 +1180,6 @@
       "Science fiction",
       "History",
       "Graphic novels"
-    ]
-  },
-  "Beloved": {
-    "genres": [
-      "History",
-      "Fiction",
-      "Historical fiction",
-      "Mystery"
     ]
   },
   "Shadow & Claw (The Book of the New Sun, #1-2)": {
@@ -1456,15 +1486,6 @@
     "genres": [
       "Mythology",
       "Religion"
-    ]
-  },
-  "All the Pretty Horses (The Border Trilogy, #1)": {
-    "genres": [
-      "Fiction",
-      "Coming of age",
-      "Romance",
-      "Western",
-      "Travel"
     ]
   },
   "The Dispossessed": {
