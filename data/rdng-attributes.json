@@ -13,12 +13,145 @@
       "Graphic novels"
     ]
   },
+  "2666": {
+    "genres": [
+      "Fiction",
+      "Thriller",
+      "Mystery"
+    ]
+  },
+  "Les Misérables": {
+    "genres": [
+      "Fiction",
+      "History",
+      "Historical fiction",
+      "Politics",
+      "Music",
+      "Fantasy",
+      "Adventure",
+      "Romance"
+    ]
+  },
+  "Life on the Bridge: linking my world to yours as an autistic therapist": {
+    "genres": [
+      "Psychology"
+    ]
+  },
+  "To the Lighthouse": {
+    "genres": [
+      "Fiction",
+      "Contemporary fiction",
+      "History",
+      "Western"
+    ]
+  },
+  "Madonna in a Fur Coat": {
+    "genres": [
+      "Fiction",
+      "History",
+      "Coming of age"
+    ]
+  },
+  "Looking for Alaska": {
+    "genres": [
+      "Fiction",
+      "YA"
+    ]
+  },
+  "Tuesdays with Morrie: An Old Man, a Young Man, and Life's Greatest Lesson": {
+    "genres": [
+      "Biography",
+      "Psychology",
+      "Philosophy",
+      "Religion"
+    ]
+  },
+  "The Blade Itself (The First Law, #1)": {
+    "genres": [
+      "Fiction",
+      "Fantasy"
+    ]
+  },
+  "Interior Chinatown": {
+    "genres": [
+      "Fiction"
+    ]
+  },
+  "Vineland": {
+    "genres": [
+      "Fiction"
+    ]
+  },
+  "Klara and the Sun": {
+    "genres": [
+      "Fiction",
+      "Science fiction",
+      "Dystopian",
+      "Romance"
+    ]
+  },
+  "The Circle (The Circle, #1)": {
+    "genres": [
+      "Fiction",
+      "Science",
+      "Thriller",
+      "Satire",
+      "Dystopian",
+      "Drama",
+      "Literary fiction"
+    ]
+  },
+  "Ready Player One (Ready Player One, #1)": {
+    "genres": [
+      "Fiction",
+      "Science fiction",
+      "Dystopian",
+      "YA",
+      "Adventure"
+    ]
+  },
+  "The Tenant": {
+    "genres": [
+      "Thriller",
+      "Mystery",
+      "Fiction",
+      "Horror"
+    ]
+  },
   "Lapvona": {
     "genres": [
       "Religion",
       "Fiction",
       "Fantasy",
       "History"
+    ]
+  },
+  "Major Arcana": {
+    "genres": [
+      "Fiction"
+    ]
+  },
+  "The Secret Garden": {
+    "genres": [
+      "Fiction",
+      "History",
+      "YA",
+      "Coming of age",
+      "Fantasy",
+      "Mystery",
+      "Thriller"
+    ]
+  },
+  "Neuromancer (Sprawl, #1)": {
+    "genres": [
+      "Fiction",
+      "Science fiction"
+    ]
+  },
+  "The Hero of Ages (Mistborn, #3)": {
+    "genres": [
+      "Fiction",
+      "Fantasy"
     ]
   },
   "There There": {
@@ -43,12 +176,6 @@
       "Fiction",
       "Dystopian",
       "Science fiction"
-    ]
-  },
-  "The Hero of Ages (Mistborn, #3)": {
-    "genres": [
-      "Fiction",
-      "Fantasy"
     ]
   },
   "Tomorrow, and Tomorrow, and Tomorrow": {
@@ -1110,12 +1237,6 @@
       "YA"
     ]
   },
-  "Neuromancer (Sprawl, #1)": {
-    "genres": [
-      "Fiction",
-      "Science fiction"
-    ]
-  },
   "East of Eden": {
     "genres": [
       "Historical fiction",
@@ -1200,18 +1321,6 @@
   "How to Talk About Books You Haven't Read": {
     "genres": [
       "History"
-    ]
-  },
-  "Les Misérables": {
-    "genres": [
-      "Fiction",
-      "History",
-      "Historical fiction",
-      "Politics",
-      "Music",
-      "Fantasy",
-      "Adventure",
-      "Romance"
     ]
   },
   "To Kill a Mockingbird": {
